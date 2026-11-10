@@ -1,0 +1,35 @@
+.nova-text-muted {
+  color: var(--nova-text-muted);
+}
+
+.nova-text-center {
+  text-align: center;
+}
+
+.nova-hidden {
+  display: none !important;
+}
+
+.nova-w-full {
+  width: 100%;
+}
+
+.nova-heading {
+  margin: 0;
+  color: var(--nova-text);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.15;
+}
+
+.nova-btn .nova-icon,
+.nova-btn svg.nova-icon {
+  width: 1em;
+  height: 1em;
+  flex: none;
+}
+
+.nova-btn-lg .nova-icon,
+.nova-btn-lg svg.nova-icon {
+  width: 1.1em;
+  height: 1.1em;
+}

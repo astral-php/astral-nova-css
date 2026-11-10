@@ -1,0 +1,43 @@
+{
+  "name": "@astral-php/nova-css",
+  "version": "1.0.0",
+  "description": "Framework-agnostic CSS design system, semantic themes and optional native JavaScript behaviors for Astral applications.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist",
+    "src",
+    "docs",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "style": "./dist/nova.css",
+      "default": "./dist/nova.css"
+    },
+    "./nova.css": "./dist/nova.css",
+    "./nova.min.css": "./dist/nova.min.css",
+    "./core": "./src/core/index.css",
+    "./themes": "./src/themes/index.css",
+    "./themes/*": "./src/themes/palettes/*.css",
+    "./components": "./src/components/index.css",
+    "./components/*": "./src/components/*.css",
+    "./layouts": "./src/layouts/index.css",
+    "./utilities": "./src/utilities/index.css",
+    "./javascript": "./src/javascript/index.js",
+    "./javascript/components": "./src/javascript/components.js",
+    "./javascript/theme": "./src/javascript/theme.js",
+    "./accessibility": "./src/core/accessibility.css"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "lint:css": "stylelint \"src/**/*.css\" --config .stylelintrc.json",
+    "test": "node --test tests/**/*.test.js",
+    "check": "npm run test && npm run build"
+  },
+  "devDependencies": {
+    "lightningcss": "^1.29.2",
+    "stylelint": "^16.19.1",
+    "stylelint-config-standard": "^39.0.0"
+  }
+}

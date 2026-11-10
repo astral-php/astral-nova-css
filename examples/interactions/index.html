@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr" data-nova-theme="indigo" data-nova-mode="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova — Interactions</title>
+  <link rel="stylesheet" href="../../src/core/index.css">
+  <style>body{font-family:var(--nova-font-family);background:var(--nova-background);color:var(--nova-text)}.demo{display:grid;gap:1rem;max-width:52rem;margin:3rem auto;padding:1rem}.demo-row{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}.nova-btn{cursor:pointer}.nova-tab-panel{padding:1rem;border:1px solid var(--nova-border);border-radius:var(--nova-radius-md)}</style>
+</head>
+<body>
+<main class="demo nova-stack">
+  <header><p class="nova-text-muted">Astral Nova CSS · 1.0.0</p><h1 class="nova-page-title">Interactions natives</h1><p class="nova-text-muted">Modale, dropdown, onglets, accordéon, toast, drawer et tooltip.</p></header>
+  <section class="nova-card nova-stack"><h2>Modale et menu</h2><div class="demo-row"><button class="nova-btn nova-btn-primary" data-nova-modal-open="demo-modal">Ouvrir la modale</button><div class="nova-dropdown" data-nova-dropdown><button class="nova-btn" data-nova-dropdown-toggle aria-expanded="false">Actions ▾</button><div class="nova-dropdown-menu"><a class="nova-dropdown-item" href="#one">Modifier</a><a class="nova-dropdown-item" href="#two">Dupliquer</a></div></div></div></section>
+  <dialog class="nova-modal" id="demo-modal"><div class="nova-modal-header"><strong>Confirmation</strong><button class="nova-btn" data-nova-modal-close aria-label="Fermer">✕</button></div><div class="nova-modal-body"><p>Cette fenêtre utilise l'élément natif <code>dialog</code> et son comportement modal accessible.</p></div><div class="nova-modal-footer"><button class="nova-btn" data-nova-modal-close>Annuler</button><button class="nova-btn nova-btn-primary" data-nova-modal-close>Confirmer</button></div></dialog>
+  <section class="nova-card nova-stack"><h2>Onglets</h2><div role="tablist" aria-label="Exemple d'onglets"><button class="nova-btn" role="tab" id="tab-a" data-nova-tab aria-controls="panel-a" aria-selected="true">Général</button><button class="nova-btn" role="tab" id="tab-b" data-nova-tab aria-controls="panel-b" aria-selected="false" tabindex="-1">Paramètres</button></div><section class="nova-tab-panel" role="tabpanel" id="panel-a" aria-labelledby="tab-a">Contenu général.</section><section class="nova-tab-panel" role="tabpanel" id="panel-b" aria-labelledby="tab-b" hidden>Paramètres de démonstration.</section></section>
+  <section class="nova-card nova-stack"><h2>Accordéon</h2><button class="nova-btn" data-nova-accordion aria-expanded="false" aria-controls="accordion-panel">Afficher les détails</button><div class="nova-accordion-panel" id="accordion-panel" hidden>Contenu dépliable avec état ARIA synchronisé.</div></section>
+  <section class="nova-card nova-stack"><h2>Notifications et panneau latéral</h2><div class="demo-row"><button class="nova-btn nova-btn-primary" data-nova-toast="Opération enregistrée." >Afficher un toast</button><button class="nova-btn" data-nova-drawer-open="demo-drawer" aria-expanded="false">Ouvrir le drawer</button><button class="nova-btn nova-tooltip" data-nova-tooltip="Information complémentaire">Survol / focus</button></div></section>
+</main>
+<aside class="nova-drawer" id="demo-drawer" data-nova-drawer aria-hidden="true"><div class="nova-modal-header"><strong>Panneau latéral</strong><button class="nova-btn" data-nova-drawer-close>Fermer</button></div><p>Un panneau hors-canevas piloté par Nova.</p></aside>
+<script type="module">import { createInteractions } from '../../src/javascript/index.js'; createInteractions();</script>
+</body></html>

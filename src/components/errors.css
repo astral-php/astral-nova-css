@@ -1,0 +1,83 @@
+/* Semantic error pages: reusable across Astral applications. */
+.nova-error-page {
+  display: grid;
+  min-height: min(72vh, 52rem);
+  place-items: center;
+  padding: clamp(2rem, 6vw, 5rem) var(--nova-space-4);
+  text-align: center;
+}
+
+.nova-error-page__content {
+  width: min(100%, 42rem);
+  margin-inline: auto;
+}
+
+.nova-error-page__code {
+  margin: 0 0 var(--nova-space-3);
+  color: var(--nova-primary);
+  font-size: clamp(4.5rem, 16vw, 9rem);
+  font-weight: 800;
+  letter-spacing: -0.075em;
+  line-height: 0.95;
+}
+
+.nova-error-page__icon {
+  display: grid;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto var(--nova-space-4);
+  place-items: center;
+  border: 1px solid var(--nova-border);
+  border-radius: var(--nova-radius-full);
+  color: var(--nova-primary);
+  background: var(--nova-primary-soft);
+  font-size: 1.5rem;
+}
+
+.nova-error-page__title {
+  margin: 0 0 var(--nova-space-2);
+  color: var(--nova-text);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.nova-error-page__description {
+  max-width: 38rem;
+  margin: 0 auto var(--nova-space-6);
+  color: var(--nova-text-muted);
+  line-height: 1.7;
+}
+
+.nova-error-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--nova-space-3);
+}
+
+.nova-error-page__reference {
+  margin-top: var(--nova-space-5);
+  color: var(--nova-text-muted);
+  font-size: 0.8125rem;
+}
+
+.nova-error-page--403 .nova-error-page__code {
+  color: var(--nova-warning);
+}
+
+.nova-error-page--404 .nova-error-page__code {
+  color: var(--nova-primary);
+}
+
+.nova-error-page--500 .nova-error-page__code,
+.nova-error-page--503 .nova-error-page__code {
+  color: var(--nova-danger);
+}
+
+@media (width <= 30rem) {
+  .nova-error-page__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr" data-nova-theme="indigo" data-nova-mode="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova — Shell responsive (DEV-5)</title>
+  <link rel="stylesheet" href="../../src/core/index.css">
+  <style>
+    body { margin: 0; font-family: var(--nova-font-family); background: var(--nova-background); color: var(--nova-text); }
+    .demo-note { max-width: 42rem; margin: 1.5rem auto; padding: 0 1rem; color: var(--nova-text-muted); }
+  </style>
+</head>
+<body>
+  <header class="nova-header" data-nova-header>
+    <div class="nova-header-inner">
+      <a class="nova-brand" href="#">
+        <span class="nova-brand-mark" aria-hidden="true">N</span>
+        <span class="nova-brand-text"><strong>Nova Shell</strong><small>Header marketing + toggle</small></span>
+      </a>
+      <button class="nova-nav-toggle" type="button" data-nova-header-toggle aria-controls="demo-header-panel" aria-expanded="false" aria-label="Ouvrir le menu">
+        <span class="nova-nav-toggle__open">☰</span>
+        <span class="nova-nav-toggle__close">✕</span>
+      </button>
+      <div class="nova-header-panel" id="demo-header-panel">
+        <nav class="nova-header-nav" aria-label="Navigation principale">
+          <a href="#header" aria-current="page">Header</a>
+          <a href="#admin">Admin</a>
+          <a href="#steps">Steps</a>
+        </nav>
+        <div class="nova-header-actions">
+          <button class="nova-btn nova-btn-outline" type="button" id="mode-toggle">Mode sombre</button>
+          <a class="nova-btn nova-btn-primary" href="#">Action</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <p class="demo-note" id="header">Réduire sous 64rem : burger, panneau, backdrop, Escape. Puis scroller jusqu’au shell admin.</p>
+
+  <section class="nova-steps" id="steps">
+    <h2 class="nova-steps__title">Le minimum. <span>Rien de superflu.</span></h2>
+    <p class="nova-steps__lead">Motif <code>nova-steps</code> industrialisé depuis Starter.</p>
+    <div class="nova-steps__grid">
+      <article class="nova-step">
+        <div class="nova-step__top"><span class="nova-step__icon" aria-hidden="true">①</span><span class="nova-step__number">1</span></div>
+        <strong>Header mobile</strong>
+        <p>Toggle + panneau + focus / Escape.</p>
+      </article>
+      <article class="nova-step">
+        <div class="nova-step__top"><span class="nova-step__icon" aria-hidden="true">②</span><span class="nova-step__number">2</span></div>
+        <strong>App shell</strong>
+        <p>Sidebar off-canvas sous 64rem.</p>
+      </article>
+      <article class="nova-step">
+        <div class="nova-step__top"><span class="nova-step__icon" aria-hidden="true">③</span><span class="nova-step__number">3</span></div>
+        <strong>Steps</strong>
+        <p>Principles Starter → composant Nova.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="nova-app-shell" data-nova-shell id="admin" style="min-height:70vh;border-top:1px solid var(--nova-border)">
+    <aside class="nova-sidebar" aria-label="Navigation admin">
+      <a class="nova-sidebar-brand" href="#">✦ Admin</a>
+      <nav class="nova-nav">
+        <span class="nova-nav-section">Espace</span>
+        <a class="nova-nav-link" href="#" aria-current="page">Tableau de bord</a>
+        <a class="nova-nav-link" href="#">Utilisateurs</a>
+        <a class="nova-nav-link" href="#">Réglages</a>
+      </nav>
+    </aside>
+    <button type="button" class="nova-shell-backdrop" data-nova-shell-backdrop aria-label="Fermer la navigation" hidden></button>
+    <div class="nova-main">
+      <header class="nova-topbar">
+        <button class="nova-shell-toggle" type="button" data-nova-shell-toggle aria-expanded="false" aria-label="Ouvrir la navigation">☰</button>
+        <div class="nova-topbar-title">Shell admin off-canvas</div>
+      </header>
+      <div class="nova-page">
+        <h1 class="nova-page-title">Checklist mobile</h1>
+        <p class="nova-text-muted">À 375px : ouvrir la sidebar via le toggle topbar, fermer via backdrop ou Escape.</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createInteractions, theme } from '../../src/javascript/index.js';
+    createInteractions();
+    document.querySelector('#mode-toggle')?.addEventListener('click', () => {
+      const next = theme.getMode() === 'dark' ? 'light' : 'dark';
+      theme.setMode(next);
+      document.querySelector('#mode-toggle').textContent = next === 'dark' ? 'Mode clair' : 'Mode sombre';
+    });
+  </script>
+</body>
+</html>

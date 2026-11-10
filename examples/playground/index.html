@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="fr" data-nova-theme="indigo" data-nova-mode="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nova Playground : documentation interactive et galerie des composants Astral Nova CSS.">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Nova Playground — Astral</title>
+  <link rel="stylesheet" href="../../src/core/index.css">
+  <style>
+    :root { color-scheme: light dark; }
+    body { min-width: 320px; min-height: 100vh; margin: 0; color: var(--nova-text); background: var(--nova-background); font-family: var(--nova-font-family); line-height: var(--nova-line-height); }
+    .playground { min-height: 100vh; }
+    .pg-topbar { position: sticky; z-index: 20; top: 0; display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:4.25rem; padding:.7rem clamp(1rem,3vw,2rem); background:var(--nova-surface); border-bottom:1px solid var(--nova-border); }
+    .pg-brand { display:flex; align-items:center; gap:.7rem; color:var(--nova-text); font-weight:850; letter-spacing:-.04em; text-decoration:none; }
+    .pg-mark { display:grid; place-items:center; width:2.25rem; aspect-ratio:1; color:var(--nova-primary-contrast); background:var(--nova-primary); border-radius:.7rem; }
+    .pg-actions,.pg-inline { display:flex; align-items:center; flex-wrap:wrap; gap:.65rem; }
+    .pg-select { min-height:2.45rem; padding:.4rem .7rem; color:var(--nova-text); background:var(--nova-background); border:1px solid var(--nova-border); border-radius:var(--nova-radius-md); font:inherit; }
+    .pg-shell { display:grid; grid-template-columns:15rem minmax(0,1fr); max-width:1680px; margin-inline:auto; }
+    .pg-sidebar { position:sticky; top:4.25rem; align-self:start; height:calc(100vh - 4.25rem); overflow:auto; padding:1.3rem .9rem; background:var(--nova-surface); border-right:1px solid var(--nova-border); }
+    .pg-nav-title { margin:1.2rem .7rem .45rem; color:var(--nova-text-muted); font-size:.7rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+    .pg-nav { display:grid; gap:.2rem; }
+    .pg-nav a { display:flex; align-items:center; min-height:2.45rem; padding:.5rem .7rem; color:var(--nova-text-muted); border-radius:var(--nova-radius-md); text-decoration:none; font-size:.88rem; }
+    .pg-nav a:hover,.pg-nav a:focus-visible { color:var(--nova-primary); background:var(--nova-primary-soft); }
+    .pg-main { min-width:0; padding:clamp(1rem,3vw,2.5rem); }
+    .pg-hero { padding:clamp(1.5rem,4vw,3rem); border:1px solid var(--nova-border); border-radius:var(--nova-radius-lg); background:linear-gradient(125deg,var(--nova-surface),var(--nova-primary-soft)); }
+    .pg-eyebrow { color:var(--nova-primary); font-size:.72rem; font-weight:850; letter-spacing:.13em; text-transform:uppercase; }
+    .pg-hero h1 { margin:.5rem 0; font-size:clamp(2rem,5vw,3.6rem); line-height:1.04; letter-spacing:-.06em; }
+    .pg-hero p { max-width:54rem; color:var(--nova-text-muted); }
+    .pg-section { margin-top:2.5rem; scroll-margin-top:6rem; }
+    .pg-section-head { display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:1rem; }
+    .pg-section-head h2 { margin:0; font-size:1.4rem; letter-spacing:-.035em; }
+    .pg-section-head p { margin:.25rem 0 0; color:var(--nova-text-muted); font-size:.9rem; }
+    .pg-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+    .pg-grid-3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; }
+    .pg-stack { display:grid; gap:.8rem; }
+    .pg-field { display:grid; gap:.35rem; }
+    .pg-swatches { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:.7rem; }
+    .pg-swatch { display:grid; gap:.4rem; text-align:center; color:var(--nova-text-muted); font-size:.76rem; }
+    .pg-swatch button { width:100%; aspect-ratio:1.6; border:2px solid transparent; border-radius:var(--nova-radius-md); background:var(--swatch); cursor:pointer; }
+    .pg-swatch button[aria-pressed="true"] { outline:3px solid var(--nova-primary); outline-offset:3px; }
+    .pg-code { position:relative; margin-top:.8rem; padding:1rem; overflow:auto; color:#e7eaf3; background:#171923; border:1px solid #343849; border-radius:var(--nova-radius-md); font:.82rem/1.6 var(--nova-font-mono,monospace); }
+    .pg-code pre { margin:0; white-space:pre; }
+    .pg-copy { position:absolute; top:.5rem; right:.5rem; }
+    .pg-muted { color:var(--nova-text-muted); }
+    .pg-demo-panel { padding:1rem; border:1px dashed var(--nova-border); border-radius:var(--nova-radius-md); }
+    .pg-footer { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--nova-border); color:var(--nova-text-muted); font-size:.82rem; }
+    .pg-modal-content { padding:1.2rem; }
+    .pg-demo-dropdown { position:relative; }
+    .pg-demo-dropdown .nova-dropdown-menu { inset-inline-start:0; inset-inline-end:auto; }
+    .pg-status-dot { display:inline-block; width:.55rem; height:.55rem; margin-inline-end:.35rem; border-radius:50%; background:var(--nova-success); }
+    @media(max-width:950px) { .pg-shell { grid-template-columns:1fr; } .pg-sidebar { position:static; height:auto; padding:.55rem .8rem; border-right:0; border-bottom:1px solid var(--nova-border); } .pg-nav { display:flex; overflow-x:auto; gap:.2rem; } .pg-nav-title { display:none; } .pg-nav a { flex:0 0 auto; white-space:nowrap; } }
+    @media(max-width:650px) { .pg-topbar { align-items:flex-start; flex-wrap:wrap; padding:.7rem .85rem; } .pg-grid,.pg-grid-3 { grid-template-columns:1fr; } .pg-swatches { grid-template-columns:repeat(4,minmax(0,1fr)); } .pg-main { padding:1rem .8rem 2.5rem; } .pg-section-head { align-items:flex-start; flex-direction:column; } }
+    @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+<div class="playground" id="top">
+  <a class="nova-skip-link" href="#main">Aller au contenu</a>
+  <header class="pg-topbar">
+    <a class="pg-brand" href="#top" aria-label="Astral Nova Playground, accueil"><span class="pg-mark">N</span><span>ASTRAL <span style="color:var(--nova-primary)">NOVA</span></span><span class="nova-badge">1.0.0</span></a>
+    <div class="pg-actions">
+      <label for="theme-choice">Thème</label>
+      <select class="pg-select" id="theme-choice"><option value="white">White</option><option value="blue">Blue</option><option value="maroon-light">Maroon Light</option><option value="red">Red</option><option value="indigo" selected>Indigo</option><option value="orange">Orange</option><option value="green">Green</option></select>
+      <label for="mode-choice">Mode</label>
+      <select class="pg-select" id="mode-choice"><option value="light" selected>Clair</option><option value="dark">Sombre</option><option value="system">Système</option></select>
+    </div>
+  </header>
+  <div class="pg-shell">
+    <aside class="pg-sidebar" aria-label="Navigation du Playground">
+      <div class="pg-nav-title">Documentation</div>
+      <nav class="pg-nav" aria-label="Sections"><a href="#overview">Vue d'ensemble</a><a href="#themes">Thèmes</a><a href="#buttons">Boutons et badges</a><a href="#forms">Formulaires</a><a href="#feedback">Feedback</a><a href="#marketing">Marketing DEV-3</a><a href="#cards">Cartes et tableaux</a><a href="#navigation">Navigation</a><a href="#interactions">Interactions JS</a><a href="#integration">Intégration</a></nav>
+      <div class="pg-nav-title">Ressources</div>
+      <nav class="pg-nav" aria-label="Ressources"><a href="/">Hub app</a><a href="../lab/index.html">Nova Lab</a><a href="../theme-gallery/index.html">Theme Gallery</a><a href="../../../astral-nova-icons/examples/gallery/index.html">Icons</a><a href="/docs.php?doc=playground">Guide Lab</a><a href="/docs.php?doc=palettes">Palettes</a><a href="/docs.php?doc=changelog-css">Changelog</a><a href="https://astral-php.dev/" target="_blank" rel="noopener">Site Astral PHP ↗</a></nav>
+    </aside>
+    <main class="pg-main" id="main">
+      <section class="pg-hero" id="overview">
+        <div class="pg-eyebrow">Design system · Astral PHP</div>
+        <h1>Une base visuelle.<br><span style="color:var(--nova-primary)">Sept identités.</span></h1>
+        <p>Nova est le moteur CSS commun de l'écosystème Astral. Il fournit des tokens sémantiques, des composants réutilisables, des structures d'interface et des interactions JavaScript facultatives. Il reste utilisable sans Astral Core et sans framework CSS tiers.</p>
+        <div class="pg-inline"><span class="nova-badge">CSS natif</span><span class="nova-badge">7 palettes</span><span class="nova-badge">Clair / sombre</span><span class="nova-badge">JavaScript facultatif</span><span class="nova-badge">MIT</span></div>
+      </section>
+
+      <section class="pg-section" id="themes">
+        <div class="pg-section-head"><div><h2>Identités graphiques</h2><p>Changez de palette : les composants suivent les tokens sémantiques.</p></div></div>
+        <div class="pg-swatches">
+          <div class="pg-swatch"><button data-theme="white" style="--swatch:#64748b" aria-label="Activer White" aria-pressed="false"></button>White</div>
+          <div class="pg-swatch"><button data-theme="blue" style="--swatch:#2563eb" aria-label="Activer Blue" aria-pressed="false"></button>Blue</div>
+          <div class="pg-swatch"><button data-theme="maroon-light" style="--swatch:#9f4561" aria-label="Activer Maroon Light" aria-pressed="false"></button>Maroon Light</div>
+          <div class="pg-swatch"><button data-theme="red" style="--swatch:#dc2626" aria-label="Activer Red" aria-pressed="false"></button>Red</div>
+          <div class="pg-swatch"><button data-theme="indigo" style="--swatch:#4f46e5" aria-label="Activer Indigo" aria-pressed="true"></button>Indigo</div>
+          <div class="pg-swatch"><button data-theme="orange" style="--swatch:#ea580c" aria-label="Activer Orange" aria-pressed="false"></button>Orange</div>
+          <div class="pg-swatch"><button data-theme="green" style="--swatch:#0d7a45" aria-label="Activer Green" aria-pressed="false"></button>Green</div>
+        </div>
+        <div class="pg-code"><button class="nova-btn nova-btn-secondary nova-btn-sm pg-copy" data-copy='<html data-nova-theme="indigo" data-nova-mode="light">'>Copier</button><pre><code>&lt;html data-nova-theme="indigo" data-nova-mode="light"&gt;</code></pre></div>
+      </section>
+
+      <section class="pg-section" id="buttons">
+        <div class="pg-section-head"><div><h2>Boutons et badges</h2><p>Variantes d'action, tailles et états.</p></div></div>
+        <article class="nova-card pg-stack"><div class="pg-inline"><button class="nova-btn nova-btn-primary">Principal</button><button class="nova-btn nova-btn-secondary">Secondaire</button><button class="nova-btn nova-btn-outline">Contour</button><button class="nova-btn nova-btn-danger">Destructif</button></div><div class="pg-inline"><button class="nova-btn nova-btn-primary nova-btn-sm">Petit</button><button class="nova-btn nova-btn-primary">Standard</button><button class="nova-btn nova-btn-primary nova-btn-lg">Grand</button><button class="nova-btn nova-btn-primary" disabled>Désactivé</button></div><div class="pg-inline"><span class="nova-badge">Par défaut</span><span class="nova-badge">Nouveau</span><span class="nova-badge">Bêta</span></div>
+          <div class="pg-code"><button class="nova-btn nova-btn-secondary nova-btn-sm pg-copy" data-copy='<button class="nova-btn nova-btn-primary">Enregistrer</button>'>Copier</button><pre><code>&lt;button class="nova-btn nova-btn-primary"&gt;Enregistrer&lt;/button&gt;</code></pre></div>
+        </article>
+      </section>
+
+      <section class="pg-section" id="forms">
+        <div class="pg-section-head"><div><h2>Formulaires</h2><p>Champs, aides, erreurs et états désactivés.</p></div></div>
+        <article class="nova-card"><form class="pg-grid" onsubmit="event.preventDefault(); window.Nova?.showToast('Formulaire de démonstration envoyé.', {variant:'success'});">
+          <div class="pg-field"><label class="nova-label" for="demo-name">Nom complet</label><input class="nova-input" id="demo-name" name="name" placeholder="Jean Dupont"><small class="nova-help">Exemple de texte d'aide.</small></div>
+          <div class="pg-field"><label class="nova-label" for="demo-email">Adresse e-mail</label><input class="nova-input" id="demo-email" type="email" placeholder="nom@exemple.fr" aria-invalid="true" aria-describedby="demo-email-error"><small class="nova-error" id="demo-email-error">Exemple de message d'erreur.</small></div>
+          <div class="pg-field"><label class="nova-label" for="demo-select">Catégorie</label><select class="nova-select" id="demo-select"><option>Choisir une catégorie</option><option>Documentation</option><option>Développement</option></select></div>
+          <div class="pg-field"><label class="nova-label" for="demo-disabled">Champ désactivé</label><input class="nova-input" id="demo-disabled" value="Non modifiable" disabled></div>
+          <div class="pg-field" style="grid-column:1/-1"><label class="nova-label" for="demo-message">Message</label><textarea class="nova-input" id="demo-message" rows="3" placeholder="Votre message..."></textarea></div>
+          <div><button class="nova-btn nova-btn-primary" type="submit">Tester le formulaire</button></div>
+        </form></article>
+      </section>
+
+      <section class="pg-section" id="feedback">
+        <div class="pg-section-head"><div><h2>Feedback</h2><p>Alertes soft : le texte utilise le token sémantique (lisible sur les 7 palettes).</p></div></div>
+        <div class="pg-stack"><div class="nova-alert nova-alert-info" role="status">Information : ceci est un message informatif.</div><div class="nova-alert nova-alert-success" role="status">Opération réussie : vos modifications sont enregistrées.</div><div class="nova-alert nova-alert-warning" role="status">Attention : vérifiez les données avant de continuer.</div><div class="nova-alert nova-alert-danger" role="alert">Erreur : une action nécessite votre attention.</div><div class="pg-inline"><button class="nova-btn nova-btn-secondary" data-nova-toast="Notification d'information" data-nova-toast-variant="info">Toast info</button><button class="nova-btn nova-btn-secondary" data-nova-toast="Enregistrement réussi" data-nova-toast-variant="success">Toast succès</button><button class="nova-btn nova-btn-secondary" data-nova-toast="Une vérification est nécessaire" data-nova-toast-variant="warning">Toast attention</button></div></div>
+      </section>
+
+      <section class="pg-section" id="marketing">
+        <div class="pg-section-head"><div><h2>Marketing DEV-3</h2><p>Hero, feature cards, watermark, float chips et code-window — indépendants du Starter.</p></div></div>
+        <section class="nova-hero" style="border:1px solid var(--nova-border);border-radius:var(--nova-radius-xl)">
+          <div class="nova-hero-inner">
+            <div class="nova-hero-copy">
+              <span class="nova-eyebrow">Starter Kit Astral MVC</span>
+              <h3 class="nova-display">Votre prochaine application commence ici.</h3>
+              <p class="nova-lead">Motifs Nova réutilisables pour les landing pages Astral.</p>
+              <div class="nova-hero-actions">
+                <button class="nova-btn nova-btn-primary nova-btn-lg" type="button">Créer le compte administrateur →</button>
+                <button class="nova-btn nova-btn-secondary nova-btn-lg" type="button">Découvrir le starter</button>
+              </div>
+            </div>
+            <div class="nova-hero-visual">
+              <span class="nova-watermark" aria-hidden="true">A</span>
+              <div class="nova-float-chip nova-float-chip--icon" style="top:.4rem;left:-.4rem">&lt;/&gt;</div>
+              <div class="nova-code-window">
+                <div class="nova-code-window__bar">
+                  <span class="nova-code-window__dot nova-code-window__dot--red"></span>
+                  <span class="nova-code-window__dot nova-code-window__dot--amber"></span>
+                  <span class="nova-code-window__dot nova-code-window__dot--green"></span>
+                  <span class="nova-code-window__title">HomeController.php</span>
+                </div>
+                <div class="nova-code-window__body">
+                  <aside class="nova-code-window__tree">
+                    <div class="nova-code-window__tree-item">app</div>
+                    <div class="nova-code-window__tree-item nova-code-window__tree-item--indent nova-code-window__tree-item--active">HomeController.php</div>
+                    <div class="nova-code-window__tree-item nova-code-window__tree-item--indent">Model</div>
+                    <div class="nova-code-window__tree-item">config</div>
+                  </aside>
+                  <pre class="nova-code-window__pre"><span class="nova-code-window__kw">&lt;?php</span>
+
+<span class="nova-code-window__kw">namespace</span> App\Controllers;
+
+<span class="nova-code-window__kw">class</span> <span class="nova-code-window__type">HomeController</span>
+{
+    <span class="nova-code-window__kw">public function</span> <span class="nova-code-window__fn">index</span>(): Response
+    {
+        <span class="nova-code-window__kw">return</span> $this-&gt;render(<span class="nova-code-window__str">'home/index'</span>);
+    }
+}</pre>
+                </div>
+              </div>
+              <div class="nova-float-chip nova-float-chip--panel" style="right:-.35rem;bottom:.6rem">
+                <div>✓ Astral MVC</div>
+                <div>✓ Authentification</div>
+                <div>✓ Prêt à développer</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="nova-feature-grid" style="margin-top:1rem">
+          <a class="nova-feature-card" href="#marketing"><span class="nova-feature-card__icon">◇</span><span class="nova-feature-card__body"><span class="nova-feature-card__title">Authentification</span><p class="nova-feature-card__text">Carte navigable tokenisée.</p></span><span class="nova-feature-card__chevron">›</span></a>
+          <a class="nova-feature-card" href="#marketing"><span class="nova-feature-card__icon">◎</span><span class="nova-feature-card__body"><span class="nova-feature-card__title">Utilisateurs</span><p class="nova-feature-card__text">Suit la palette active.</p></span><span class="nova-feature-card__chevron">›</span></a>
+          <a class="nova-feature-card" href="#marketing"><span class="nova-feature-card__icon">⚙</span><span class="nova-feature-card__body"><span class="nova-feature-card__title">Profil</span><p class="nova-feature-card__text">Hover élévation soft.</p></span><span class="nova-feature-card__chevron">›</span></a>
+          <a class="nova-feature-card" href="#marketing"><span class="nova-feature-card__icon">⬡</span><span class="nova-feature-card__body"><span class="nova-feature-card__title">Astral Core</span><p class="nova-feature-card__text">Sans couleur hardcodée.</p></span><span class="nova-feature-card__chevron">›</span></a>
+        </div>
+        <div class="pg-code"><button class="nova-btn nova-btn-secondary nova-btn-sm pg-copy" data-copy='<section class="nova-hero">…</section>'>Copier</button><pre><code>&lt;section class="nova-hero"&gt;…&lt;/section&gt;
+&lt;a class="nova-feature-card" href="#"&gt;…&lt;/a&gt;
+&lt;div class="nova-code-window"&gt;…&lt;/div&gt;</code></pre></div>
+      </section>
+
+      <section class="pg-section" id="cards">
+        <div class="pg-section-head"><div><h2>Cartes et tableaux</h2><p>Surfaces, informations synthétiques et données tabulaires.</p></div></div>
+        <div class="pg-grid-3"><article class="nova-card"><div class="pg-muted">Utilisateurs actifs</div><strong style="font-size:2rem">2 480</strong><div class="pg-muted">+8,2 % ce mois</div></article><article class="nova-card"><div class="pg-muted">Projets</div><strong style="font-size:2rem">36</strong><div class="pg-muted">4 en cours</div></article><article class="nova-card"><div class="pg-muted">Disponibilité</div><strong style="font-size:2rem">99,9 %</strong><div class="pg-muted"><span class="pg-status-dot"></span>Opérationnel</div></article></div>
+        <article class="nova-card" style="margin-top:1rem"><div class="pg-section-head"><div><h3 style="margin:0">Dernières opérations</h3><p>Tableau responsive avec défilement horizontal si nécessaire.</p></div></div><div class="nova-table-wrap" tabindex="0" role="region" aria-label="Dernières opérations, tableau défilant"><table class="nova-table"><caption>Exemples de données Nova</caption><thead><tr><th scope="col">Référence</th><th scope="col">Projet</th><th scope="col">Statut</th><th scope="col">Date</th></tr></thead><tbody><tr><td>#NV-1042</td><td>Astral Forum</td><td><span class="nova-badge">En cours</span></td><td>02/11/2026</td></tr><tr><td>#NV-1041</td><td>Astral Shop</td><td><span class="nova-badge">Validé</span></td><td>01/11/2026</td></tr><tr><td>#NV-1040</td><td>Astral Blog</td><td><span class="nova-badge">En attente</span></td><td>31/10/2026</td></tr></tbody></table></div><nav class="nova-pagination" aria-label="Pagination de démonstration" style="margin-top:1rem"><span>Affichage de 1 à 3 sur 18 résultats</span><ul class="nova-pagination-list"><li><a class="nova-pagination-link" href="#cards" aria-disabled="true">Précédent</a></li><li><a class="nova-pagination-link" href="#cards" aria-current="page">1</a></li><li><a class="nova-pagination-link" href="#cards">2</a></li><li><a class="nova-pagination-link" href="#cards">3</a></li><li><a class="nova-pagination-link" href="#cards">Suivant</a></li></ul></nav></article>
+      </section>
+
+      <section class="pg-section" id="navigation">
+        <div class="pg-section-head"><div><h2>Navigation</h2><p>Onglets, menu déroulant et accordéon.</p></div></div>
+        <div class="pg-grid">
+          <article class="nova-card pg-stack"><h3 style="margin:0">Onglets</h3><div class="nova-tabs"><div class="nova-tab-list" role="tablist" aria-label="Exemple d'onglets"><button class="nova-tab" id="tab-overview" role="tab" aria-selected="true" aria-controls="panel-overview" data-nova-tab>Vue générale</button><button class="nova-tab" id="tab-details" role="tab" aria-selected="false" aria-controls="panel-details" data-nova-tab tabindex="-1">Détails</button></div><section class="nova-tab-panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">Contenu de la vue générale.</section><section class="nova-tab-panel" id="panel-details" role="tabpanel" aria-labelledby="tab-details" hidden>Contenu détaillé du composant.</section></div></article>
+          <article class="nova-card pg-stack"><h3 style="margin:0">Dropdown</h3><div class="nova-dropdown pg-demo-dropdown" data-nova-dropdown><button class="nova-btn nova-btn-secondary" type="button" data-nova-dropdown-toggle aria-expanded="false">Actions ▾</button><div class="nova-dropdown-menu"><a class="nova-dropdown-item" href="#navigation">Modifier</a><a class="nova-dropdown-item" href="#navigation">Dupliquer</a><a class="nova-dropdown-item" href="#navigation">Archiver</a></div></div><h3 style="margin:0">Accordéon</h3><button class="nova-btn nova-btn-outline" type="button" data-nova-accordion aria-expanded="false" aria-controls="accordion-demo">Afficher les détails</button><div class="nova-accordion-panel" id="accordion-demo" hidden>Un panneau dépliable contrôlé par les attributs ARIA et le module JavaScript Nova.</div></article>
+        </div>
+      </section>
+
+      <section class="pg-section" id="interactions">
+        <div class="pg-section-head"><div><h2>Interactions JavaScript</h2><p>Comportements facultatifs, activés par le module natif Nova.</p></div></div>
+        <article class="nova-card pg-stack"><div class="pg-inline"><button class="nova-btn nova-btn-primary" data-nova-modal-open="demo-modal">Ouvrir une modale</button><button class="nova-btn nova-btn-secondary" data-nova-drawer-open="demo-drawer" aria-expanded="false">Ouvrir un drawer</button><button class="nova-btn nova-btn-secondary" data-nova-toast="Le module Nova fonctionne." data-nova-toast-variant="success">Afficher un toast</button><button class="nova-btn nova-btn-outline nova-tooltip" data-nova-tooltip="Infobulle CSS accessible">Survoler / focus</button></div><p class="pg-muted">Le contrôleur est initialisé une seule fois sur le document. Les composants interactifs restent progressifs : sans JavaScript, leur contenu HTML demeure présent.</p></article>
+        <dialog class="nova-modal" id="demo-modal" aria-labelledby="demo-modal-title"><div class="nova-modal-header"><h3 id="demo-modal-title">Modale Nova</h3><button class="nova-btn nova-btn-secondary nova-btn-sm" data-nova-modal-close aria-label="Fermer">✕</button></div><div class="pg-modal-content"><p>Exemple basé sur l'élément HTML natif <code>dialog</code>.</p></div><div class="nova-modal-footer"><button class="nova-btn nova-btn-primary" data-nova-modal-close>Compris</button></div></dialog>
+        <aside class="nova-drawer" id="demo-drawer" data-nova-drawer aria-label="Panneau latéral de démonstration" aria-hidden="true"><div class="pg-inline" style="justify-content:space-between"><h3>Drawer Nova</h3><button class="nova-btn nova-btn-secondary nova-btn-sm" data-nova-drawer-close>Fermer</button></div><p>Un panneau latéral adapté aux interfaces d'administration et aux écrans mobiles.</p></aside>
+      </section>
+
+      <section class="pg-section" id="integration">
+        <div class="pg-section-head"><div><h2>Intégration</h2><p>Chargement direct des assets, sans dépendance à Astral Core.</p></div></div>
+        <article class="nova-card"><p>Copiez les fichiers <code>src/</code> dans le répertoire public de votre application, ou utilisez le package Composer / NPM selon votre chaîne de déploiement.</p><div class="pg-code"><button class="nova-btn nova-btn-secondary nova-btn-sm pg-copy" data-copy='<link rel="stylesheet" href="/assets/nova/core/index.css">'>Copier</button><pre><code>&lt;link rel="stylesheet" href="/assets/nova/core/index.css"&gt;</code></pre></div><div class="pg-code"><button class="nova-btn nova-btn-secondary nova-btn-sm pg-copy" data-copy="import { createInteractions } from '/assets/nova/javascript/index.js';\ncreateInteractions();">Copier</button><pre><code>import { createInteractions } from '/assets/nova/javascript/index.js';
+createInteractions();</code></pre></div><p class="pg-muted">Le bundle de distribution <code>dist/nova.css</code> est généré avec <code>npm run build</code> après installation des dépendances.</p></article>
+      </section>
+      <footer class="pg-footer">Astral Nova CSS 1.0.0 · MIT · Documentation de développement. <a href="https://astral-php.dev/">Astral PHP</a></footer>
+    </main>
+  </div>
+</div>
+<script type="module">
+  import { theme, createInteractions, showToast } from '../../src/javascript/index.js';
+  window.Nova = { ...(window.Nova ?? {}), theme, createInteractions, showToast };
+  createInteractions(document);
+  const themeSelect = document.querySelector('#theme-choice');
+  const modeSelect = document.querySelector('#mode-choice');
+  themeSelect.addEventListener('change', () => {
+    theme.set(themeSelect.value);
+    document.querySelectorAll('[data-theme]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.theme === themeSelect.value)));
+  });
+  document.querySelectorAll('[data-theme]').forEach(button => button.addEventListener('click', () => {
+    themeSelect.value = button.dataset.theme;
+    theme.set(button.dataset.theme);
+    document.querySelectorAll('[data-theme]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  }));
+  modeSelect.addEventListener('change', () => theme.setMode(modeSelect.value));
+  document.querySelectorAll('[data-copy]').forEach(button => button.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(button.dataset.copy); button.textContent = 'Copié'; }
+    catch { showToast('Copie impossible : sélectionnez le code manuellement.', { variant: 'warning' }); }
+  }));
+</script>
+</body>
+</html>

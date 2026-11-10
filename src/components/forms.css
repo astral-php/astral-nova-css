@@ -1,0 +1,64 @@
+.nova-form-group {
+  display: grid;
+  gap: var(--nova-space-2);
+  min-width: 0;
+}
+
+.nova-label {
+  display: block;
+  margin-bottom: var(--nova-space-2);
+  color: var(--nova-text);
+  font-weight: 600;
+}
+
+.nova-input,
+.nova-select,
+.nova-textarea {
+  display: block;
+  width: 100%;
+  min-height: 2.65rem;
+  padding: 0.6rem 0.75rem;
+  color: var(--nova-text);
+  background: var(--nova-background);
+  border: 1px solid var(--nova-border);
+  border-radius: var(--nova-radius-md);
+}
+
+.nova-input::placeholder,
+.nova-textarea::placeholder {
+  color: var(--nova-text-muted);
+}
+
+.nova-help {
+  display: block;
+  margin-top: var(--nova-space-1);
+  color: var(--nova-text-muted);
+  font-size: 0.875rem;
+}
+
+.nova-error {
+  display: block;
+  margin-top: var(--nova-space-1);
+  color: var(--nova-danger);
+  font-size: 0.875rem;
+}
+
+.nova-input:disabled,
+.nova-select:disabled,
+.nova-textarea:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.nova-input[aria-invalid="true"],
+.nova-select[aria-invalid="true"],
+.nova-textarea[aria-invalid="true"] {
+  border-color: var(--nova-danger);
+}
+
+.nova-input:focus-visible,
+.nova-select:focus-visible,
+.nova-textarea:focus-visible {
+  outline: var(--nova-focus-width, 3px) solid var(--nova-focus-ring);
+  outline-offset: 1px;
+}

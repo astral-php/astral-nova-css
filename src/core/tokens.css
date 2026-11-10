@@ -1,0 +1,37 @@
+:root {
+  color-scheme: light;
+
+  --nova-font-family:
+    system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
+  --nova-font-mono: ui-monospace, sfmono-regular, menlo, monospace;
+  --nova-font-size: 1rem;
+  --nova-line-height: 1.5;
+  --nova-font-weight-normal: 400;
+  --nova-font-weight-medium: 500;
+  --nova-font-weight-semibold: 600;
+  --nova-font-weight-bold: 700;
+  --nova-space-1: 0.25rem;
+  --nova-space-2: 0.5rem;
+  --nova-space-3: 0.75rem;
+  --nova-space-4: 1rem;
+  --nova-space-5: 1.25rem;
+  --nova-space-6: 1.5rem;
+  --nova-space-8: 2rem;
+  --nova-space-10: 2.5rem;
+  --nova-space-12: 3rem;
+  --nova-radius-sm: 0.25rem;
+  --nova-radius-md: 0.5rem;
+  --nova-radius-lg: 0.875rem;
+  --nova-radius-xl: 1.15rem;
+  --nova-radius-full: 999px;
+
+  /* Soft “airy” elevation used by marketing cards / floating chips. */
+  --nova-shadow-sm: 0 1px 2px rgb(0 0 0 / 5%), 0 4px 12px rgb(0 0 0 / 4%);
+  --nova-shadow-md: 0 8px 20px rgb(0 0 0 / 8%), 0 2px 6px rgb(0 0 0 / 4%);
+  --nova-shadow-lg: 0 18px 48px rgb(0 0 0 / 12%), 0 4px 12px rgb(0 0 0 / 5%);
+  --nova-container-width: 74rem;
+  --nova-transition-fast: 140ms ease;
+  --nova-transition-normal: 220ms ease;
+  --nova-focus-width: 3px;
+  --nova-focus-offset: 2px;
+}

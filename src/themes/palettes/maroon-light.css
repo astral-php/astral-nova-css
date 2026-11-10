@@ -1,0 +1,56 @@
+[data-nova-theme="maroon-light"] {
+  color-scheme:light;
+
+  /* Astral Forum — burgundy maquette */
+  --nova-primary: #9f1239;
+  --nova-primary-hover: #7f0e2d;
+  --nova-primary-contrast: #fff;
+  --nova-background: #fff;
+  --nova-surface: #fff5f7;
+  --nova-surface-hover: #fce7ef;
+  --nova-text: #24171c;
+  --nova-text-muted: #78666d;
+  --nova-border: #eedde4;
+  --nova-focus-ring: #9f1239;
+  --nova-success: #18794e;
+  --nova-warning: #946200;
+  --nova-danger: #b42318;
+  --nova-danger-contrast: #fff;
+  --nova-info: #176b87;
+  --nova-primary-soft: var(--nova-surface);
+  --nova-success-soft: #ecfdf3;
+  --nova-warning-soft: #fffaeb;
+  --nova-danger-soft: #fef3f2;
+  --nova-info-soft: #eff8ff;
+  --nova-success-contrast: #14532d;
+  --nova-warning-contrast: #713f12;
+  --nova-info-contrast: #0c4a6e;
+}
+
+[data-nova-theme="maroon-light"][data-nova-mode="dark"] {
+  color-scheme:dark;
+
+  --nova-primary: #f9a8d4;
+  --nova-primary-hover: #fbcfe8;
+  --nova-primary-contrast: #4a0418;
+  --nova-background: #1a0f14;
+  --nova-surface: #2a161e;
+  --nova-surface-hover: #3b1f2a;
+  --nova-text: #fff5f7;
+  --nova-text-muted: #f0c4d2;
+  --nova-border: #5a2a3a;
+  --nova-focus-ring: #f9a8d4;
+  --nova-success: #6bd3a2;
+  --nova-warning: #f4cf72;
+  --nova-danger: #ff938b;
+  --nova-danger-contrast: #4a0418;
+  --nova-info: #83cde0;
+  --nova-primary-soft: var(--nova-surface-hover);
+  --nova-success-soft: #123a2a;
+  --nova-warning-soft: #3b2b12;
+  --nova-danger-soft: #421d1b;
+  --nova-info-soft: #132f45;
+  --nova-success-contrast: #dcfce7;
+  --nova-warning-contrast: #fef3c7;
+  --nova-info-contrast: #e0f2fe;
+}

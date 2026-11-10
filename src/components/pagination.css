@@ -1,0 +1,49 @@
+.nova-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--nova-space-3);
+  color: var(--nova-text-muted);
+  font-size: 0.875rem;
+}
+
+.nova-pagination-list {
+  display: flex;
+  align-items: center;
+  gap: var(--nova-space-1);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nova-pagination-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.35rem;
+  min-height: 2.35rem;
+  padding: 0.4rem 0.65rem;
+  border: 1px solid var(--nova-border);
+  border-radius: var(--nova-radius-md);
+  color: var(--nova-text);
+  background: var(--nova-surface);
+  text-decoration: none;
+}
+
+.nova-pagination-link:hover {
+  background: var(--nova-surface-hover);
+}
+
+.nova-pagination-link[aria-current="page"],
+.nova-pagination-link.is-active {
+  color: var(--nova-primary-contrast);
+  background: var(--nova-primary);
+  border-color: var(--nova-primary);
+  font-weight: 700;
+}
+
+.nova-pagination-link[aria-disabled="true"] {
+  opacity: 0.45;
+  pointer-events: none;
+}

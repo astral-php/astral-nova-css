@@ -1,0 +1,56 @@
+[data-nova-theme="red"] {
+  color-scheme:light;
+
+  /* Astral Forge — deep red maquette */
+  --nova-primary: #b51220;
+  --nova-primary-hover: #920d18;
+  --nova-primary-contrast: #fff;
+  --nova-background: #fff;
+  --nova-surface: #fff0f1;
+  --nova-surface-hover: #ffe4e6;
+  --nova-text: #171923;
+  --nova-text-muted: #626879;
+  --nova-border: #e8e9ee;
+  --nova-focus-ring: #b51220;
+  --nova-success: #15803d;
+  --nova-warning: #a16207;
+  --nova-danger: #991b1b;
+  --nova-danger-contrast: #fff;
+  --nova-info: #0369a1;
+  --nova-primary-soft: var(--nova-surface);
+  --nova-success-soft: #ecfdf3;
+  --nova-warning-soft: #fffaeb;
+  --nova-danger-soft: #fef3f2;
+  --nova-info-soft: #eff8ff;
+  --nova-success-contrast: #14532d;
+  --nova-warning-contrast: #713f12;
+  --nova-info-contrast: #0c4a6e;
+}
+
+[data-nova-theme="red"][data-nova-mode="dark"] {
+  color-scheme:dark;
+
+  --nova-primary: #fca5a5;
+  --nova-primary-hover: #fecaca;
+  --nova-primary-contrast: #450a0a;
+  --nova-background: #1a0a0c;
+  --nova-surface: #2a1215;
+  --nova-surface-hover: #3d191d;
+  --nova-text: #fff0f1;
+  --nova-text-muted: #fecaca;
+  --nova-border: #5c2428;
+  --nova-focus-ring: #fca5a5;
+  --nova-success: #4ade80;
+  --nova-warning: #facc15;
+  --nova-danger: #fca5a5;
+  --nova-danger-contrast: #450a0a;
+  --nova-info: #7dd3fc;
+  --nova-primary-soft: var(--nova-surface-hover);
+  --nova-success-soft: #123a2a;
+  --nova-warning-soft: #3b2b12;
+  --nova-danger-soft: #421d1b;
+  --nova-info-soft: #132f45;
+  --nova-success-contrast: #dcfce7;
+  --nova-warning-contrast: #fef3c7;
+  --nova-info-contrast: #e0f2fe;
+}

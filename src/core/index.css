@@ -1,0 +1,9 @@
+@layer nova.reset, nova.tokens, nova.themes, nova.components, nova.utilities, nova.accessibility;
+
+@import url("./reset.css") layer(nova.reset);
+@import url("./tokens.css") layer(nova.tokens);
+@import url("../themes/index.css") layer(nova.themes);
+@import url("../components/index.css") layer(nova.components);
+@import url("../layouts/index.css") layer(nova.utilities);
+@import url("../utilities/index.css") layer(nova.utilities);
+@import url("./accessibility.css") layer(nova.accessibility);

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr" data-nova-theme="green" data-nova-mode="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d7a45">
+  <title>Nova Theme Gallery — Astral</title>
+  <link rel="stylesheet" href="../../src/core/index.css">
+  <style>
+    body { margin: 0; font-family: var(--nova-font-family); color: var(--nova-text); background: var(--nova-background); }
+    .tg-top { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: space-between; padding: .85rem 1.25rem; background: var(--nova-surface); border-bottom: 1px solid var(--nova-border); }
+    .tg-brand { display: inline-flex; gap: .6rem; align-items: center; font-weight: 800; text-decoration: none; color: inherit; }
+    .tg-mark { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: .6rem; background: var(--nova-primary); color: var(--nova-primary-contrast); }
+    .tg-actions { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+    .tg-select { min-height: 2.4rem; padding: .35rem .7rem; border: 1px solid var(--nova-border); border-radius: var(--nova-radius-md); background: var(--nova-background); color: var(--nova-text); font: inherit; }
+    .tg-main { max-width: 74rem; margin: auto; padding: 1.5rem 1.25rem 3rem; display: grid; gap: 1.5rem; }
+    .tg-swatches { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); gap: .6rem; }
+    .tg-swatch button { width: 100%; aspect-ratio: 1.7; border: 2px solid transparent; border-radius: var(--nova-radius-md); background: var(--swatch); cursor: pointer; }
+    .tg-swatch button[aria-pressed="true"] { outline: 3px solid var(--nova-primary); outline-offset: 3px; }
+    .tg-swatch span { display: block; margin-top: .35rem; text-align: center; color: var(--nova-text-muted); font-size: .78rem; }
+    .tg-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
+    .tg-stack { display: grid; gap: .75rem; }
+    .tg-muted { color: var(--nova-text-muted); }
+    @media (max-width: 800px) { .tg-swatches, .tg-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="tg-top">
+    <a class="tg-brand" href="./index.html"><span class="tg-mark">N</span> Nova Theme Gallery <span class="nova-badge">1.0.0 · contraste OK</span></a>
+    <div class="tg-actions">
+      <label for="theme">Thème</label>
+      <select id="theme" class="tg-select">
+        <option value="white">White</option>
+        <option value="blue">Blue</option>
+        <option value="maroon-light">Maroon Light</option>
+        <option value="red">Red</option>
+        <option value="indigo">Indigo</option>
+        <option value="orange">Orange</option>
+        <option value="green" selected>Green</option>
+      </select>
+      <label for="mode">Mode</label>
+      <select id="mode" class="tg-select">
+        <option value="light" selected>Clair</option>
+        <option value="dark">Sombre</option>
+        <option value="system">Système</option>
+      </select>
+      <a class="nova-btn nova-btn-secondary nova-btn-sm" href="../lab/index.html">Nova Lab</a>
+      <a class="nova-btn nova-btn-outline nova-btn-sm" href="../playground/index.html">Playground</a>
+    </div>
+  </header>
+
+  <main class="tg-main">
+    <section>
+      <h1 class="nova-display" style="font-size:clamp(1.8rem,3vw,2.4rem)">Sept palettes, un contrat soft.</h1>
+      <p class="nova-lead">Vérifiez boutons, alertes soft (texte lisible), feature cards et code-window sur chaque identité.</p>
+    </section>
+
+    <section class="tg-swatches" aria-label="Palettes">
+      <div class="tg-swatch"><button data-theme="white" style="--swatch:#64748b" aria-pressed="false" aria-label="White"></button><span>White · neutre</span></div>
+      <div class="tg-swatch"><button data-theme="blue" style="--swatch:#2563eb" aria-pressed="false" aria-label="Blue"></button><span>Blue · Deploy/Shop</span></div>
+      <div class="tg-swatch"><button data-theme="maroon-light" style="--swatch:#9f1239" aria-pressed="false" aria-label="Maroon Light"></button><span>Maroon · Forum</span></div>
+      <div class="tg-swatch"><button data-theme="red" style="--swatch:#b51220" aria-pressed="false" aria-label="Red"></button><span>Red · Forge</span></div>
+      <div class="tg-swatch"><button data-theme="indigo" style="--swatch:#5b4cf5" aria-pressed="false" aria-label="Indigo"></button><span>Indigo · Website</span></div>
+      <div class="tg-swatch"><button data-theme="orange" style="--swatch:#ea580c" aria-pressed="false" aria-label="Orange"></button><span>Orange · Blog</span></div>
+      <div class="tg-swatch"><button data-theme="green" style="--swatch:#0d7a45" aria-pressed="true" aria-label="Green"></button><span>Green · Starter</span></div>
+    </section>
+
+    <section class="tg-grid">
+      <article class="nova-card tg-stack">
+        <h2 class="nova-heading" style="font-size:1.2rem">Actions</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem">
+          <button class="nova-btn nova-btn-primary" type="button">Primary</button>
+          <button class="nova-btn nova-btn-secondary" type="button">Secondary</button>
+          <button class="nova-btn nova-btn-outline" type="button">Outline</button>
+          <button class="nova-btn nova-btn-danger" type="button">Danger</button>
+        </div>
+        <span class="nova-badge">Badge soft</span>
+      </article>
+      <article class="nova-card tg-stack">
+        <h2 class="nova-heading" style="font-size:1.2rem">Alertes soft</h2>
+        <div class="nova-alert nova-alert-info" role="status">Info : texte lisible sur fond soft.</div>
+        <div class="nova-alert nova-alert-success" role="status">Succès : enregistrement OK.</div>
+        <div class="nova-alert nova-alert-warning" role="status">Attention : vérifiez les données.</div>
+        <div class="nova-alert nova-alert-danger" role="alert">Erreur : action requise (plus de texte blanc invisible).</div>
+      </article>
+    </section>
+
+    <section class="nova-feature-grid">
+      <a class="nova-feature-card" href="#"><span class="nova-feature-card__icon">◇</span><span class="nova-feature-card__body"><span class="nova-feature-card__title">Feature</span><p class="nova-feature-card__text">Carte navigable tokenisée.</p></span><span class="nova-feature-card__chevron">›</span></a>
+      <a class="nova-feature-card" href="#"><span class="nova-feature-card__icon">◎</span><span class="nova-feature-card__body"><span class="nova-feature-card__title">Auth</span><p class="nova-feature-card__text">Suit la palette active.</p></span><span class="nova-feature-card__chevron">›</span></a>
+      <a class="nova-feature-card" href="#"><span class="nova-feature-card__icon">▣</span><span class="nova-feature-card__body"><span class="nova-feature-card__title">Admin</span><p class="nova-feature-card__text">Même contrat soft.</p></span><span class="nova-feature-card__chevron">›</span></a>
+      <a class="nova-feature-card" href="#"><span class="nova-feature-card__icon">⬡</span><span class="nova-feature-card__body"><span class="nova-feature-card__title">Core</span><p class="nova-feature-card__text">Sans hardcode de couleur.</p></span><span class="nova-feature-card__chevron">›</span></a>
+    </section>
+
+    <section class="nova-hero" style="border-radius:var(--nova-radius-xl);border:1px solid var(--nova-border)">
+      <div class="nova-hero-inner" style="padding:2rem">
+        <div class="nova-hero-copy">
+          <span class="nova-eyebrow">Marketing DEV-3</span>
+          <h2 class="nova-display" style="font-size:clamp(1.8rem,3vw,2.6rem)">Hero + code-window</h2>
+          <p class="nova-lead">Motifs Nova réutilisables, indépendants du Starter.</p>
+          <div class="nova-hero-actions">
+            <button class="nova-btn nova-btn-primary" type="button">Action primaire</button>
+            <button class="nova-btn nova-btn-secondary" type="button">Secondaire</button>
+          </div>
+        </div>
+        <div class="nova-hero-visual">
+          <span class="nova-watermark" aria-hidden="true">A</span>
+          <div class="nova-float-chip nova-float-chip--icon" style="top:.5rem;left:-.25rem">&lt;/&gt;</div>
+          <div class="nova-code-window">
+            <div class="nova-code-window__bar">
+              <span class="nova-code-window__dot nova-code-window__dot--red"></span>
+              <span class="nova-code-window__dot nova-code-window__dot--amber"></span>
+              <span class="nova-code-window__dot nova-code-window__dot--green"></span>
+              <span class="nova-code-window__title">HomeController.php</span>
+            </div>
+            <div class="nova-code-window__body">
+              <aside class="nova-code-window__tree">
+                <div class="nova-code-window__tree-item">app</div>
+                <div class="nova-code-window__tree-item nova-code-window__tree-item--indent nova-code-window__tree-item--active">HomeController.php</div>
+                <div class="nova-code-window__tree-item nova-code-window__tree-item--indent">Model</div>
+              </aside>
+              <pre class="nova-code-window__pre"><span class="nova-code-window__kw">&lt;?php</span>
+
+<span class="nova-code-window__kw">class</span> <span class="nova-code-window__type">HomeController</span>
+{
+    <span class="nova-code-window__kw">public function</span> <span class="nova-code-window__fn">index</span>(): Response
+    {
+        <span class="nova-code-window__kw">return</span> $this-&gt;render(<span class="nova-code-window__str">'home'</span>);
+    }
+}</pre>
+            </div>
+          </div>
+          <div class="nova-float-chip nova-float-chip--panel" style="right:-.2rem;bottom:.5rem">
+            <div class="tg-muted">✓ Astral MVC</div>
+            <div class="tg-muted">✓ Authentification</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { theme } from '../../src/javascript/index.js';
+    const themeSelect = document.querySelector('#theme');
+    const modeSelect = document.querySelector('#mode');
+    const sync = () => {
+      document.querySelectorAll('[data-theme]').forEach((btn) => {
+        btn.setAttribute('aria-pressed', String(btn.dataset.theme === themeSelect.value));
+      });
+    };
+    themeSelect.addEventListener('change', () => { theme.set(themeSelect.value); sync(); });
+    modeSelect.addEventListener('change', () => theme.setMode(modeSelect.value));
+    document.querySelectorAll('[data-theme]').forEach((btn) => btn.addEventListener('click', () => {
+      themeSelect.value = btn.dataset.theme;
+      theme.set(btn.dataset.theme);
+      sync();
+    }));
+  </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+.nova-container {
+  width: min(100% - 2rem, var(--nova-container-width));
+  margin-inline: auto;
+}

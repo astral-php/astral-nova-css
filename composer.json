@@ -1,0 +1,37 @@
+{
+  "name": "astral-php/astral-nova-css",
+  "description": "Framework-agnostic CSS design system and theme assets for Astral applications.",
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/astral-php/astral-nova-css",
+  "support": {
+    "source": "https://github.com/astral-php/astral-nova-css",
+    "issues": "https://github.com/astral-php/astral-nova-css/issues"
+  },
+  "keywords": [
+    "astral",
+    "css",
+    "design-system",
+    "themes",
+    "ui"
+  ],
+  "autoload": {
+    "psr-4": {}
+  },
+  "extra": {
+    "nova": {
+      "assets": "src/",
+      "themes": "src/themes/palettes/",
+      "javascript": "src/javascript/",
+      "stylesheet": "src/core/index.css",
+      "components": "src/components/",
+      "layouts": "src/layouts/",
+      "utilities": "src/utilities/",
+      "build": "dist/nova.css",
+      "accessibility": "src/core/accessibility.css"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "version": "1.0.0"
+}

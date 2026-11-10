@@ -1,0 +1,39 @@
+.nova-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nova-space-4);
+}
+
+.nova-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--nova-space-3);
+}
+
+.nova-cluster-between {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nova-space-3);
+}
+
+.nova-inline-form {
+  display: flex;
+  align-items: center;
+  gap: var(--nova-space-2);
+  min-width: 13rem;
+}
+
+.nova-inline-form .nova-select {
+  min-width: 7rem;
+}
+
+@media (width <= 40rem) {
+  .nova-inline-form {
+    align-items: stretch;
+    flex-direction: column;
+    min-width: 9rem;
+  }
+}

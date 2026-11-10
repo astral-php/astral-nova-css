@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr" data-nova-theme="indigo" data-nova-mode="light">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova — Tableau de bord</title>
+  <link rel="stylesheet" href="../../src/core/index.css">
+  <style>
+    body { margin:0; font-family:var(--nova-font-family); background:var(--nova-background); color:var(--nova-text); }
+    .nova-metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; margin-bottom:1.5rem; }
+    .nova-metric-value { display:block; margin-top:.4rem; font-size:1.8rem; font-weight:800; }
+    .nova-demo-toolbar { display:flex; align-items:center; gap:.5rem; }
+    @media(max-width:850px){.nova-metrics{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media(max-width:480px){.nova-metrics{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <div class="nova-app-shell" data-nova-shell>
+    <aside class="nova-sidebar" aria-label="Navigation principale">
+      <a class="nova-sidebar-brand" href="#">✦ ASTRAL <span class="nova-badge">NOVA</span></a>
+      <nav class="nova-nav">
+        <span class="nova-nav-section">Espace de travail</span>
+        <a class="nova-nav-link" href="#" aria-current="page">▦ Tableau de bord</a>
+        <a class="nova-nav-link" href="#">◷ Activité</a>
+        <a class="nova-nav-link" href="#">▤ Rapports</a>
+        <span class="nova-nav-section">Administration</span>
+        <a class="nova-nav-link" href="#">♙ Utilisateurs</a>
+        <a class="nova-nav-link" href="#">⚙ Paramètres</a>
+      </nav>
+    </aside>
+    <button type="button" class="nova-shell-backdrop" data-nova-shell-backdrop aria-label="Fermer la navigation" hidden></button>
+    <main class="nova-main">
+      <header class="nova-topbar"><button class="nova-shell-toggle" type="button" data-nova-shell-toggle aria-expanded="false" aria-label="Ouvrir la navigation">☰</button><div class="nova-breadcrumbs"><a href="#">Accueil</a><span>/</span><span aria-current="page">Tableau de bord</span></div><div class="nova-demo-toolbar"><button class="nova-btn nova-btn-secondary nova-btn-sm" id="mode-toggle" type="button">Mode sombre</button><span class="nova-badge">Administrateur</span></div></header>
+      <div class="nova-page">
+        <header class="nova-page-header"><div><h1 class="nova-page-title">Tableau de bord</h1><p class="nova-text-muted">Vue d'ensemble de votre activité.</p></div><button class="nova-btn nova-btn-primary" type="button">＋ Nouvelle entrée</button></header>
+        <section class="nova-metrics" aria-label="Indicateurs clés">
+          <article class="nova-card"><span class="nova-text-muted">Utilisateurs</span><strong class="nova-metric-value">2 840</strong><span class="nova-badge">+12,4 %</span></article>
+          <article class="nova-card"><span class="nova-text-muted">Sessions</span><strong class="nova-metric-value">8 492</strong><span class="nova-badge">+8,2 %</span></article>
+          <article class="nova-card"><span class="nova-text-muted">Conversions</span><strong class="nova-metric-value">6,8 %</strong><span class="nova-badge">+1,1 pt</span></article>
+          <article class="nova-card"><span class="nova-text-muted">Incidents</span><strong class="nova-metric-value">3</strong><span class="nova-badge">À surveiller</span></article>
+        </section>
+        <section class="nova-stack">
+          <div class="nova-page-header"><div><h2>Activité récente</h2><p class="nova-text-muted">Dernières opérations enregistrées.</p></div><button class="nova-btn nova-btn-outline nova-btn-sm" type="button">Voir tout</button></div>
+          <div class="nova-table-wrap"><table class="nova-table"><caption>Exemple de tableau de données Nova</caption><thead><tr><th scope="col">Utilisateur</th><th scope="col">Action</th><th scope="col">Date</th><th scope="col">Statut</th></tr></thead><tbody>
+            <tr><td><strong>Camille Bernard</strong></td><td>Création de compte</td><td>02 nov. 2026</td><td><span class="nova-badge">Confirmé</span></td></tr>
+            <tr><td><strong>Thomas Leroy</strong></td><td>Mise à jour du profil</td><td>02 nov. 2026</td><td><span class="nova-badge">Terminé</span></td></tr>
+            <tr><td><strong>Sarah Petit</strong></td><td>Demande de validation</td><td>01 nov. 2026</td><td><span class="nova-badge">En attente</span></td></tr>
+          </tbody></table></div>
+          <nav class="nova-pagination" aria-label="Pagination"><span>Affichage de 1 à 3 sur 24 résultats</span><ul class="nova-pagination-list"><li><a class="nova-pagination-link" href="#" aria-disabled="true" aria-label="Page précédente">‹</a></li><li><a class="nova-pagination-link" href="#" aria-current="page">1</a></li><li><a class="nova-pagination-link" href="#">2</a></li><li><a class="nova-pagination-link" href="#">3</a></li><li><a class="nova-pagination-link" href="#" aria-label="Page suivante">›</a></li></ul></nav>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script type="module">
+    import { createInteractions } from '../../src/javascript/index.js';
+    createInteractions();
+    const root = document.documentElement;
+    document.querySelector('#mode-toggle').addEventListener('click', () => {
+      const dark = root.dataset.novaMode !== 'dark';
+      root.dataset.novaMode = dark ? 'dark' : 'light';
+      document.querySelector('#mode-toggle').textContent = dark ? 'Mode clair' : 'Mode sombre';
+    });
+  </script>
+</body>
+</html>

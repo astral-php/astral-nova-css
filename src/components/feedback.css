@@ -1,0 +1,121 @@
+.nova-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--nova-radius-full);
+  color: var(--nova-primary);
+  background: var(--nova-primary-soft);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.nova-badge-success {
+  color: var(--nova-success);
+  background: var(--nova-success-soft);
+}
+
+.nova-badge-warning {
+  color: var(--nova-warning);
+  background: var(--nova-warning-soft);
+}
+
+.nova-badge-danger {
+  color: var(--nova-danger);
+  background: var(--nova-danger-soft);
+}
+
+.nova-badge-info {
+  color: var(--nova-info);
+  background: var(--nova-info-soft);
+}
+
+.nova-avatar {
+  width: 3.5rem;
+  height: 3.5rem;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--nova-primary);
+  background: var(--nova-primary-soft);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.nova-description-list {
+  display: grid;
+  gap: 0;
+  margin: var(--nova-space-4) 0 0;
+}
+
+.nova-description-list > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--nova-space-4);
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--nova-border);
+}
+
+.nova-description-list dt {
+  color: var(--nova-text-muted);
+  font-weight: 600;
+}
+
+.nova-description-list dd {
+  margin: 0;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+@media (width <= 40rem) {
+  .nova-description-list > div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .nova-description-list dd {
+    text-align: left;
+  }
+}
+
+.nova-alert {
+  display: flex;
+  gap: var(--nova-space-3);
+  padding: var(--nova-space-4);
+  border: 1px solid var(--nova-border);
+  border-radius: var(--nova-radius-md);
+  color: var(--nova-text);
+  background: var(--nova-surface);
+}
+
+/* Soft surfaces: use semantic hue (not *-contrast, reserved for solid buttons). */
+.nova-alert-success {
+  color: var(--nova-success);
+  background: var(--nova-success-soft);
+  border-color: var(--nova-success);
+}
+
+.nova-alert-warning {
+  color: var(--nova-warning);
+  background: var(--nova-warning-soft);
+  border-color: var(--nova-warning);
+}
+
+.nova-alert-danger {
+  color: var(--nova-danger);
+  background: var(--nova-danger-soft);
+  border-color: var(--nova-danger);
+}
+
+.nova-alert-info {
+  color: var(--nova-info);
+  background: var(--nova-info-soft);
+  border-color: var(--nova-info);
+}
+
+.nova-text-muted {
+  color: var(--nova-text-muted);
+}

@@ -1,0 +1,75 @@
+.nova-auth-layout {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: var(--nova-space-6) var(--nova-space-4);
+  background: var(--nova-background);
+}
+
+.nova-auth-layout > .nova-card {
+  width: min(100%, 28rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.nova-auth-mark {
+  width: 3.25rem;
+  height: 3.25rem;
+  margin: 0 auto var(--nova-space-3);
+  display: grid;
+  place-items: center;
+  color: var(--nova-primary);
+  background: var(--nova-primary-soft);
+  border-radius: var(--nova-radius-lg);
+}
+
+.nova-auth-mark svg,
+.nova-auth-mark .nova-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.nova-auth-layout .nova-stack,
+.nova-auth-layout form {
+  text-align: left;
+}
+
+.nova-auth-footer {
+  margin: var(--nova-space-6) 0 0;
+  color: var(--nova-text-muted);
+  font-size: 0.9rem;
+}
+
+.nova-auth-footer a,
+.nova-link {
+  color: var(--nova-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nova-auth-footer a:hover,
+.nova-link:hover {
+  text-decoration: underline;
+}
+
+.nova-page-footer {
+  width: min(100% - 2rem, var(--nova-container-width));
+  margin-inline: auto;
+  padding-block: var(--nova-space-6);
+  color: var(--nova-text-muted);
+  border-top: 1px solid var(--nova-border);
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.nova-user-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--nova-space-2);
+}
+
+@media (width <= 30rem) {
+  .nova-auth-layout {
+    padding: var(--nova-space-4) var(--nova-space-3);
+  }
+}

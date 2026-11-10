@@ -1,0 +1,45 @@
+.nova-tabs {
+  border-bottom: 1px solid var(--nova-border);
+}
+
+.nova-tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--nova-space-2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nova-tab {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.9rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--nova-text-muted);
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nova-tab:hover {
+  color: var(--nova-text);
+  background: var(--nova-surface-hover);
+}
+
+.nova-tab[aria-selected="true"] {
+  color: var(--nova-primary);
+  border-bottom-color: var(--nova-primary);
+}
+
+.nova-tab:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nova-tab-panel {
+  padding-block: var(--nova-space-4);
+}

@@ -1,0 +1,56 @@
+[data-nova-theme="blue"] {
+  color-scheme:light;
+
+  /* Astral Deploy / Shop — blue maquette */
+  --nova-primary: #2563eb;
+  --nova-primary-hover: #1d4ed8;
+  --nova-primary-contrast: #fff;
+  --nova-background: #fff;
+  --nova-surface: #eff6ff;
+  --nova-surface-hover: #dbeafe;
+  --nova-text: #172554;
+  --nova-text-muted: #536987;
+  --nova-border: #bfdbfe;
+  --nova-focus-ring: #2563eb;
+  --nova-success: #15803d;
+  --nova-warning: #a16207;
+  --nova-danger: #b91c1c;
+  --nova-danger-contrast: #fff;
+  --nova-info: #0369a1;
+  --nova-primary-soft: var(--nova-surface);
+  --nova-success-soft: #ecfdf3;
+  --nova-warning-soft: #fffaeb;
+  --nova-danger-soft: #fef3f2;
+  --nova-info-soft: #eff8ff;
+  --nova-success-contrast: #14532d;
+  --nova-warning-contrast: #713f12;
+  --nova-info-contrast: #0c4a6e;
+}
+
+[data-nova-theme="blue"][data-nova-mode="dark"] {
+  color-scheme:dark;
+
+  --nova-primary: #93c5fd;
+  --nova-primary-hover: #bfdbfe;
+  --nova-primary-contrast: #172554;
+  --nova-background: #0b1526;
+  --nova-surface: #12223c;
+  --nova-surface-hover: #1a3054;
+  --nova-text: #eff6ff;
+  --nova-text-muted: #bfdbfe;
+  --nova-border: #2d4a73;
+  --nova-focus-ring: #93c5fd;
+  --nova-success: #4ade80;
+  --nova-warning: #facc15;
+  --nova-danger: #fca5a5;
+  --nova-danger-contrast: #172554;
+  --nova-info: #7dd3fc;
+  --nova-primary-soft: var(--nova-surface-hover);
+  --nova-success-soft: #123a2a;
+  --nova-warning-soft: #3b2b12;
+  --nova-danger-soft: #421d1b;
+  --nova-info-soft: #132f45;
+  --nova-success-contrast: #dcfce7;
+  --nova-warning-contrast: #fef3c7;
+  --nova-info-contrast: #e0f2fe;
+}

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr" data-nova-theme="indigo" data-nova-mode="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nova Lab — hub design system Astral (CSS, Template, Icons).">
+  <meta name="theme-color" content="#4f46e5">
+  <title>Nova Lab — CSS · Template · Icons</title>
+  <link rel="stylesheet" href="../../src/core/index.css">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--nova-text);
+      background:
+        radial-gradient(900px 420px at 8% -10%, color-mix(in srgb, var(--nova-primary) 16%, transparent), transparent 55%),
+        var(--nova-background);
+      font-family: var(--nova-font-family);
+      line-height: var(--nova-line-height);
+    }
+    .lab {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: clamp(1.25rem, 3vw, 2.5rem);
+    }
+    .lab-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .lab-brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      color: inherit;
+      text-decoration: none;
+      font-weight: 850;
+      letter-spacing: -.04em;
+    }
+    .lab-mark {
+      display: grid;
+      place-items: center;
+      width: 2.4rem;
+      aspect-ratio: 1;
+      border-radius: .75rem;
+      color: var(--nova-primary-contrast);
+      background: var(--nova-primary);
+    }
+    .lab-hero h1 {
+      margin: .4rem 0 .75rem;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      letter-spacing: -.05em;
+      line-height: 1.08;
+    }
+    .lab-hero p {
+      max-width: 40rem;
+      margin: 0 0 1.75rem;
+      color: var(--nova-text-muted);
+    }
+    .lab-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .lab-card {
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+      padding: 1.25rem 1.3rem;
+      border: 1px solid var(--nova-border);
+      border-radius: var(--nova-radius-lg);
+      background: var(--nova-surface);
+      box-shadow: var(--nova-shadow-sm);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color .15s, transform .15s;
+    }
+    .lab-card:hover {
+      border-color: color-mix(in srgb, var(--nova-primary) 45%, var(--nova-border));
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    .lab-card h2 {
+      margin: 0;
+      font-size: 1.15rem;
+      letter-spacing: -.02em;
+    }
+    .lab-card p {
+      margin: 0;
+      flex: 1;
+      color: var(--nova-text-muted);
+      font-size: .92rem;
+      line-height: 1.5;
+    }
+    .lab-card span {
+      color: var(--nova-primary);
+      font-weight: 700;
+      font-size: .88rem;
+    }
+    .lab-note {
+      margin-top: 2rem;
+      padding: 1rem 1.15rem;
+      border: 1px dashed var(--nova-border);
+      border-radius: var(--nova-radius-md);
+      background: color-mix(in srgb, var(--nova-surface) 80%, transparent);
+      color: var(--nova-text-muted);
+      font-size: .9rem;
+    }
+    .lab-note code { color: var(--nova-text); }
+    @media (max-width: 900px) {
+      .lab-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="lab">
+    <div class="lab-top">
+      <a class="lab-brand" href="./index.html"><span class="lab-mark">N</span> Nova Lab</a>
+      <span class="nova-badge">Nova Design 1.0.0</span>
+    </div>
+
+    <section class="lab-hero">
+      <p class="nova-eyebrow" style="margin:0;color:var(--nova-primary);font-size:.72rem;font-weight:850;letter-spacing:.12em;text-transform:uppercase">Astral design system</p>
+      <h1>Un seul lab pour Nova CSS, Template et Icons.</h1>
+      <p>
+        Le playground n’appartient plus au produit Starter. Servez les packages
+        <code>components-astral</code> en local et utilisez ce hub comme porte d’entrée.
+      </p>
+    </section>
+
+    <div class="lab-grid">
+      <a class="lab-card" href="../playground/index.html">
+        <h2>Nova CSS — Playground</h2>
+        <p>Composants, thèmes, soft alerts, marketing DEV-3, interactions JS.</p>
+        <span>Ouvrir →</span>
+      </a>
+      <a class="lab-card" href="../theme-gallery/index.html">
+        <h2>Nova CSS — Theme Gallery</h2>
+        <p>Audit des 7 palettes × modes clair/sombre (contraste DEV-4).</p>
+        <span>Ouvrir →</span>
+      </a>
+      <a class="lab-card" href="../../../astral-nova-icons/examples/gallery/index.html">
+        <h2>Nova Icons — Galerie</h2>
+        <p>Sprite 0.2, tailles sm/md/lg/xl, variantes filled.</p>
+        <span>Ouvrir →</span>
+      </a>
+      <a class="lab-card" href="/docs.php?doc=template">
+        <h2>Template Nova — Docs</h2>
+        <p>Partials / layouts PHP. Contrôle runtime via une app (ex. routes <code>/nova-templates</code>).</p>
+        <span>Doc HTML →</span>
+      </a>
+      <a class="lab-card" href="/docs.php?doc=playground">
+        <h2>Comment servir le Lab</h2>
+        <p>Commandes HTTP local, checklist validation, périmètre doc.</p>
+        <span>Guide HTML →</span>
+      </a>
+      <a class="lab-card" href="https://astral-php.dev/" target="_blank" rel="noopener">
+        <h2>Site Astral PHP</h2>
+        <p>Documentation produit publique (pas le lab design system).</p>
+        <span>Site ↗</span>
+      </a>
+    </div>
+
+    <aside class="lab-note">
+      <strong>Contrôle recommandé</strong> via l’app
+      <code>astral-nova-playground</code> →
+      <a href="http://astral-nova-playground.local/">http://astral-nova-playground.local/</a>
+      (packages montés sous <code>/packages/</code>).
+    </aside>
+  </div>
+</body>
+</html>

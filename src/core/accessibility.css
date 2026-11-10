@@ -1,0 +1,78 @@
+/* Accessibility defaults and opt-in helpers. */
+:where(
+  button,
+  input,
+  select,
+  textarea,
+  a[href],
+  [tabindex]:not([tabindex="-1"])
+):focus-visible {
+  outline: var(--nova-focus-width, 3px) solid
+    var(--nova-focus-ring, currentColor);
+  outline-offset: var(--nova-focus-offset, 2px);
+}
+
+.nova-skip-link {
+  position: absolute;
+  z-index: 1000;
+  inset-block-start: var(--nova-space-2);
+  inset-inline-start: var(--nova-space-2);
+  padding: var(--nova-space-3) var(--nova-space-4);
+  color: var(--nova-primary-contrast);
+  background: var(--nova-primary);
+  border-radius: var(--nova-radius-md);
+  transform: translateY(-150%);
+}
+
+.nova-skip-link:focus {
+  transform: translateY(0);
+}
+
+.nova-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (forced-colors: active) {
+  :where(
+    button,
+    input,
+    select,
+    textarea,
+    a[href],
+    [tabindex]:not([tabindex="-1"])
+  ):focus-visible {
+    outline: 2px solid Highlight;
+  }
+
+  .nova-btn {
+    border: 1px solid ButtonText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}

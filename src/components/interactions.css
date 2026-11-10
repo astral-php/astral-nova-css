@@ -1,0 +1,179 @@
+/* Optional JavaScript-driven interaction surfaces. */
+.nova-modal {
+  width: min(min(92vw, 38rem), 100%);
+  max-height: min(85vh, 48rem);
+  padding: 0;
+  color: var(--nova-text);
+  background: var(--nova-surface);
+  border: 1px solid var(--nova-border);
+  border-radius: var(--nova-radius-lg);
+  box-shadow: var(--nova-shadow-lg);
+}
+
+.nova-modal::backdrop {
+  background: rgb(15 23 42 / 55%);
+  backdrop-filter: blur(2px);
+}
+
+.nova-modal-header,
+.nova-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--nova-space-3);
+  padding: var(--nova-space-4) var(--nova-space-5);
+}
+
+.nova-modal-header {
+  border-bottom: 1px solid var(--nova-border);
+}
+
+.nova-modal-body {
+  padding: var(--nova-space-5);
+}
+
+.nova-modal-footer {
+  justify-content: flex-end;
+  border-top: 1px solid var(--nova-border);
+}
+
+.nova-dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+.nova-dropdown-menu {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 0.4rem);
+  inset-inline-end: 0;
+  display: none;
+  min-width: 12rem;
+  padding: var(--nova-space-2);
+  background: var(--nova-surface);
+  border: 1px solid var(--nova-border);
+  border-radius: var(--nova-radius-md);
+  box-shadow: var(--nova-shadow-lg);
+}
+
+.nova-dropdown.is-open .nova-dropdown-menu {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.nova-dropdown-item {
+  display: block;
+  padding: 0.55rem 0.7rem;
+  color: var(--nova-text);
+  text-decoration: none;
+  border-radius: var(--nova-radius-sm);
+}
+
+.nova-dropdown-item:hover,
+.nova-dropdown-item:focus-visible {
+  background: var(--nova-surface-hover);
+}
+
+.nova-accordion-panel[hidden],
+.nova-tab-panel[hidden] {
+  display: none;
+}
+
+.nova-accordion-panel {
+  padding: var(--nova-space-4);
+  color: var(--nova-text-muted);
+}
+
+.nova-drawer {
+  position: fixed;
+  z-index: 50;
+  inset-block: 0;
+  inset-inline-end: 0;
+  width: min(min(90vw, 24rem), 100%);
+  padding: var(--nova-space-5);
+  overflow: auto;
+  color: var(--nova-text);
+  background: var(--nova-surface);
+  border-inline-start: 1px solid var(--nova-border);
+  box-shadow: var(--nova-shadow-lg);
+  transform: translateX(105%);
+  visibility: hidden;
+  transition:
+    transform 0.2s ease,
+    visibility 0.2s;
+}
+
+.nova-drawer.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.nova-toast-region {
+  position: fixed;
+  z-index: 80;
+  inset-block-start: 1rem;
+  inset-inline-end: 1rem;
+  display: grid;
+  gap: 0.6rem;
+  width: min(min(24rem, calc(100vw - 2rem)), 100%);
+}
+
+.nova-toast {
+  padding: var(--nova-space-3) var(--nova-space-4);
+  color: var(--nova-text);
+  background: var(--nova-surface);
+  border: 1px solid var(--nova-border);
+  border-inline-start: 4px solid var(--nova-info);
+  border-radius: var(--nova-radius-md);
+  box-shadow: var(--nova-shadow-lg);
+}
+
+.nova-toast-success {
+  border-inline-start-color: var(--nova-success);
+}
+
+.nova-toast-warning {
+  border-inline-start-color: var(--nova-warning);
+}
+
+.nova-toast-danger {
+  border-inline-start-color: var(--nova-danger);
+}
+
+.nova-tooltip {
+  position: relative;
+}
+
+.nova-tooltip[data-nova-tooltip]::after {
+  position: absolute;
+  z-index: 40;
+  inset-block-end: calc(100% + 0.5rem);
+  inset-inline-start: 50%;
+  width: max-content;
+  max-width: 16rem;
+  padding: 0.35rem 0.55rem;
+  color: var(--nova-surface);
+  background: var(--nova-text);
+  border-radius: var(--nova-radius-sm);
+  content: attr(data-nova-tooltip);
+  font-size: 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 0.2rem);
+  transition:
+    opacity 0.15s,
+    transform 0.15s;
+}
+
+.nova-tooltip:hover::after,
+.nova-tooltip:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nova-drawer,
+  .nova-tooltip::after {
+    transition: none;
+  }
+}

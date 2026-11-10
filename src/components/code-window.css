@@ -1,0 +1,121 @@
+/* Neutral dark code window — usable on every palette / mode. */
+
+.nova-code-window {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  color: #d7ebe0;
+  background: #15241d;
+  border: 1px solid #2a4035;
+  border-radius: var(--nova-radius-xl);
+  box-shadow: var(--nova-shadow-lg);
+  min-height: 16rem;
+}
+
+.nova-code-window__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.85rem 1rem;
+  background: #1a2c24;
+  border-bottom: 1px solid #30463d;
+}
+
+.nova-code-window__dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: var(--nova-radius-full);
+}
+
+.nova-code-window__dot--red {
+  background: #ff5f57;
+}
+
+.nova-code-window__dot--amber {
+  background: #febc2e;
+}
+
+.nova-code-window__dot--green {
+  background: #28c840;
+}
+
+.nova-code-window__title {
+  margin-inline-start: 0.65rem;
+  color: #9bb5a8;
+  font-size: 0.82rem;
+}
+
+.nova-code-window__body {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  min-height: 14rem;
+}
+
+.nova-code-window__tree {
+  padding: 0.9rem 0.75rem;
+  color: #8eaa9c;
+  background: #12201a;
+  border-inline-end: 1px solid #30463d;
+  font: 0.72rem / 1.7 var(--nova-font-mono);
+}
+
+.nova-code-window__tree-item {
+  padding-block: 0.05rem;
+}
+
+.nova-code-window__tree-item--indent {
+  padding-inline-start: 0.9rem;
+}
+
+.nova-code-window__tree-item--active {
+  color: #8dffb4;
+  font-weight: 700;
+}
+
+.nova-code-window__pre {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  overflow: auto;
+  color: #cfe4d8;
+  font: 0.8rem / 1.7 var(--nova-font-mono);
+}
+
+.nova-code-window__kw {
+  color: #7ee0a8;
+}
+
+.nova-code-window__type {
+  color: #9fd4ff;
+}
+
+.nova-code-window__fn {
+  color: #ffe08a;
+}
+
+.nova-code-window__str {
+  color: #9ae6b4;
+}
+
+/* Compact : code only (no file tree). */
+.nova-code-window--compact {
+  min-height: 0;
+}
+
+.nova-code-window--compact .nova-code-window__body {
+  grid-template-columns: 1fr;
+  min-height: 0;
+}
+
+.nova-code-window--compact .nova-code-window__tree {
+  display: none;
+}
+
+@media (width <= 640px) {
+  .nova-code-window__body {
+    grid-template-columns: 1fr;
+  }
+
+  .nova-code-window__tree {
+    display: none;
+  }
+}
