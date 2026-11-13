@@ -1,9 +1,11 @@
 # Integrations
 
-Place optional ecosystem adapters here. They must not be imported by the core entry point unless the consumer explicitly selects them.
+Adaptateurs optionnels — **non** importés par `dist/nova.css`.
 
-- `tailwind-v3/`: planned preset bridge.
-- `tailwind-v4/`: planned CSS-first bridge.
-- `bootstrap/`: planned for a later release, initially targeting stable Bootstrap 5.x.
+| Dossier | Statut | Contenu |
+|---------|--------|---------|
+| `tailwind-v3/` | ✅ 1.1 | `preset.cjs` — tokens Nova → `theme.extend` |
+| `tailwind-v4/` | ✅ 1.1 | `theme.css` — tokens Nova → `@theme` |
+| `bootstrap/` | ⏳ plus tard | Bootstrap 5.x |
 
-An adapter may map Nova tokens to upstream theme variables, document class coexistence, or provide utility configuration. It must not create a runtime dependency from Nova core to the upstream framework.
+Critères : pas de dépendance runtime Nova → framework ; coexistence documentée ; composants UI restent `nova-*`.

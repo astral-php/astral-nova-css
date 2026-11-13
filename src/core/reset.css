@@ -10,6 +10,10 @@ html {
 
 body {
   margin: 0;
+  color: var(--nova-text, inherit);
+  background: var(--nova-background, #fff);
+  font-family: var(--nova-font-family, system-ui, sans-serif);
+  line-height: var(--nova-line-height, 1.5);
 }
 
 button,

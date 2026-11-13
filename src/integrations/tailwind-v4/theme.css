@@ -1,0 +1,45 @@
+/**
+ * Astral Nova — pont tokens pour Tailwind CSS v4 (@theme)
+ *
+ * Usage (CSS d'entrée app) :
+ *   @import "tailwindcss";
+ *   @import "../../vendor/astral-php/astral-nova-css/src/integrations/tailwind-v4/theme.css";
+ *
+ * Charger aussi dist/nova.css (thèmes / composants) séparément dans le HTML ou via un autre import.
+ */
+
+@theme {
+  --color-nova-primary: var(--nova-primary);
+  --color-nova-primary-hover: var(--nova-primary-hover);
+  --color-nova-primary-contrast: var(--nova-primary-contrast);
+  --color-nova-primary-soft: var(--nova-primary-soft);
+  --color-nova-background: var(--nova-background);
+  --color-nova-surface: var(--nova-surface);
+  --color-nova-surface-hover: var(--nova-surface-hover);
+  --color-nova-text: var(--nova-text);
+  --color-nova-muted: var(--nova-text-muted);
+  --color-nova-border: var(--nova-border);
+  --color-nova-focus: var(--nova-focus-ring);
+  --color-nova-success: var(--nova-success);
+  --color-nova-warning: var(--nova-warning);
+  --color-nova-danger: var(--nova-danger);
+  --color-nova-info: var(--nova-info);
+  --font-nova: var(--nova-font-family);
+  --font-nova-mono: var(--nova-font-mono);
+  --radius-nova-sm: var(--nova-radius-sm);
+  --radius-nova-md: var(--nova-radius-md);
+  --radius-nova-lg: var(--nova-radius-lg);
+  --radius-nova-xl: var(--nova-radius-xl);
+  --shadow-nova-sm: var(--nova-shadow-sm);
+  --shadow-nova-md: var(--nova-shadow-md);
+  --shadow-nova-lg: var(--nova-shadow-lg);
+  --spacing-nova-1: var(--nova-space-1);
+  --spacing-nova-2: var(--nova-space-2);
+  --spacing-nova-3: var(--nova-space-3);
+  --spacing-nova-4: var(--nova-space-4);
+  --spacing-nova-5: var(--nova-space-5);
+  --spacing-nova-6: var(--nova-space-6);
+  --spacing-nova-8: var(--nova-space-8);
+  --spacing-nova-10: var(--nova-space-10);
+  --spacing-nova-12: var(--nova-space-12);
+}

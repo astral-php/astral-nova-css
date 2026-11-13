@@ -1,0 +1,44 @@
+/**
+ * Layout primitives Nova 1.1 — pas de grille 12 colonnes.
+ *
+ * .nova-grid-auto — cartes / tuiles responsive (auto-fit)
+ * .nova-split     — deux colonnes ad hoc (contenu principal + aside)
+ */
+
+.nova-grid-auto {
+  --nova-grid-min: 16rem;
+  --nova-grid-gap: var(--nova-space-4);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--nova-grid-min)), 1fr));
+  gap: var(--nova-grid-gap);
+}
+
+.nova-grid-auto-sm {
+  --nova-grid-min: 12rem;
+}
+
+.nova-grid-auto-lg {
+  --nova-grid-min: 20rem;
+}
+
+.nova-split {
+  --nova-split-gap: var(--nova-space-6);
+  --nova-split-aside: 1fr;
+  --nova-split-main: 2fr;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--nova-split-gap);
+  align-items: start;
+}
+
+@media (width >= 48rem) {
+  .nova-split {
+    grid-template-columns: var(--nova-split-aside) var(--nova-split-main);
+  }
+
+  .nova-split-reverse {
+    grid-template-columns: var(--nova-split-main) var(--nova-split-aside);
+  }
+}

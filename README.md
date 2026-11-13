@@ -49,9 +49,9 @@ Adapters translate or expose Nova design tokens to another styling ecosystem. Th
 
 | Adapter | Status | Target |
 |---|---|---|
-| Tailwind CSS v4 | Deferred until after 1.0.0 | CSS-first token bridge |
-| Tailwind CSS v3 | Deferred until after 1.0.0 | Preset / configuration bridge |
-| Bootstrap | Deferred until after 1.0.0 | Start with a stable Bootstrap 5.x target; evaluate Bootstrap 6 after stable release |
+| Tailwind CSS v4 | **1.1.0** opt-in (`src/integrations/tailwind-v4/theme.css`) | CSS-first token bridge |
+| Tailwind CSS v3 | **1.1.0** opt-in (`src/integrations/tailwind-v3/preset.cjs`) | Preset / configuration bridge |
+| Bootstrap | Deferred | Start with a stable Bootstrap 5.x target; evaluate Bootstrap 6 after stable release |
 | Other systems | Research backlog | Evaluate demand and maintenance cost before implementation |
 
 Bootstrap is deliberately not included in the core bundle. Bootstrap 5.3.8 is the current stable 5.x release line in the initial project research; Bootstrap 6 is alpha and must not be treated as a production target yet.

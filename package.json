@@ -1,6 +1,6 @@
 {
   "name": "@astral-php/nova-css",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Framework-agnostic CSS design system, semantic themes and optional native JavaScript behaviors for Astral applications.",
   "license": "MIT",
   "type": "module",
@@ -24,6 +24,8 @@
     "./components/*": "./src/components/*.css",
     "./layouts": "./src/layouts/index.css",
     "./utilities": "./src/utilities/index.css",
+    "./integrations/tailwind-v3": "./src/integrations/tailwind-v3/preset.cjs",
+    "./integrations/tailwind-v4": "./src/integrations/tailwind-v4/theme.css",
     "./javascript": "./src/javascript/index.js",
     "./javascript/components": "./src/javascript/components.js",
     "./javascript/theme": "./src/javascript/theme.js",

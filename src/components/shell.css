@@ -202,15 +202,17 @@
 }
 
 .nova-steps {
-  max-width: var(--nova-container-width);
-  margin-inline: auto;
-  padding: 3.75rem 1.5rem 4.25rem;
+  margin: 0;
+  padding: clamp(3rem, 5vw, 4.5rem) 1.5rem clamp(3.5rem, 5.5vw, 5rem);
+  background: color-mix(in srgb, var(--nova-primary) 7%, var(--nova-surface));
+  border-block: 1px solid var(--nova-border);
 }
 
 .nova-steps__title {
   text-align: center;
   font-size: clamp(1.7rem, 2.6vw, 2.2rem);
-  margin: 0 0 0.7rem;
+  margin: 0 auto 0.7rem;
+  max-width: var(--nova-container-width);
   color: var(--nova-text);
 }
 
@@ -222,20 +224,27 @@
   text-align: center;
   color: var(--nova-text-muted);
   max-width: 42rem;
-  margin: 0 auto 2.4rem;
+  margin: 0 auto 2.75rem;
   line-height: 1.6;
 }
 
 .nova-steps__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.75rem;
+  gap: 0;
+  max-width: var(--nova-container-width);
+  margin-inline: auto;
 }
 
 .nova-step {
   display: grid;
   gap: 0.7rem;
-  padding: 0.25rem 0.5rem;
+  padding: 0.35rem clamp(1rem, 2.5vw, 1.85rem);
+  border-inline-end: 1px solid var(--nova-border);
+}
+
+.nova-step:last-child {
+  border-inline-end: none;
 }
 
 .nova-step__top {
@@ -346,6 +355,21 @@
 
   .nova-steps__grid {
     grid-template-columns: 1fr;
+  }
+
+  .nova-step {
+    padding-block: 1.15rem;
+    border-inline-end: none;
+    border-block-end: 1px solid var(--nova-border);
+  }
+
+  .nova-step:last-child {
+    border-block-end: none;
+    padding-block-end: 0;
+  }
+
+  .nova-step:first-child {
+    padding-block-start: 0;
   }
 
   .nova-brand-text small {

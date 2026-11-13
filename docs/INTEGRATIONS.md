@@ -3,13 +3,13 @@
 ## Adapter philosophy
 Adapters are optional compatibility layers. They expose Nova tokens or map an ecosystem's conventions to Nova. They must not duplicate the full component library or introduce a runtime dependency into Nova core.
 
-## Planned adapters
+## Available adapters (1.1)
 
-### Tailwind CSS v4 — initial integration track
-Provide a CSS-first token bridge and usage guidance. Tailwind utilities remain optional layout helpers; Nova component classes remain the canonical component API.
+### Tailwind CSS v4
+CSS-first token bridge : `src/integrations/tailwind-v4/theme.css` (`@theme`). Tailwind utilities remain optional layout helpers; Nova component classes remain the canonical component API.
 
-### Tailwind CSS v3 — initial integration track
-Provide a separate preset/configuration bridge. Do not assume v3 and v4 share the same configuration model.
+### Tailwind CSS v3
+Preset bridge : `src/integrations/tailwind-v3/preset.cjs`. Do not assume v3 and v4 share the same configuration model.
 
 ### Bootstrap — later release
 Bootstrap is explicitly part of the adapter roadmap, not the initial core. Start by targeting the stable Bootstrap 5.3 line and test CSS namespace/cascade interactions. Evaluate Bootstrap 6 only after its stable release and browser-support requirements are understood. Do not load Bootstrap and Nova component CSS indiscriminately: document which system owns each component to prevent collisions and duplicate styles.

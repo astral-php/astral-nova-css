@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.1.0 — Layout primitives + adaptateurs Tailwind (2026-11-13)
+
+### Ajouté
+
+- `.nova-grid-auto` (+ `-sm` / `-lg`) — CSS Grid `auto-fit` / `minmax` + tokens gap
+- `.nova-split` / `.nova-split-reverse` — split 1fr/2fr dès `48rem`
+- Adaptateur **Tailwind v3** : `src/integrations/tailwind-v3/preset.cjs`
+- Adaptateur **Tailwind v4** : `src/integrations/tailwind-v4/theme.css`
+
+### Ajusté (maquette Starter)
+
+- `.nova-display` : largeur/rythme calés sur le hero + accent `span` (couleur primaire)
+- `.nova-hero` : fond surface plus marqué, grille copy/visual rééquilibrée
+- `.nova-steps` : bandeau `surface` full-bleed + séparateurs verticaux entre les 3 items
+- `.nova-feature-grid` : espacement vertical sous le hero
+
+### Notes
+
+- Pas de grille 12 colonnes.
+- Adaptateurs hors bundle `dist/nova.css` (opt-in).
+
 ## 1.0.0 — Nova Design stable (2026-11-08)
 
 Premier contrat **stable** de la suite Nova Design (avec `astral-template-nova@1.0.0` et `astral-nova-icons@1.0.0`).
