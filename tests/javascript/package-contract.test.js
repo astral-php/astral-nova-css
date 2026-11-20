@@ -9,7 +9,7 @@ test('NPM exports expose source modules and both generated CSS bundles', async (
   for (const key of ['.', './nova.css', './nova.min.css', './nova.iife.js', './nova.iife.min.js', './javascript/iife', './core', './themes', './components', './layouts', './utilities', './accessibility', './javascript', './javascript/theme', './javascript/components']) {
     assert.ok(pkg.exports[key], `Missing package export: ${key}`);
   }
-  assert.equal(pkg.version, '1.1.0');
+  assert.equal(pkg.version, '1.2.0');
   assert.ok(pkg.files.includes('src'));
   assert.ok(pkg.files.includes('dist'));
 });

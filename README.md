@@ -78,18 +78,14 @@ Version 0.6 adds shared accessibility helpers, visible keyboard focus, skip-navi
 
 ## CDN (single JS file)
 
-CSS `@1.1.0` is already on jsDelivr. **`dist/nova.iife.min.js` is not in the 1.1.0 tag yet** — ship it with the next release, then:
-
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/astral-php/astral-nova-css@1.1.0/dist/nova.min.css">
-<script src="https://cdn.jsdelivr.net/gh/astral-php/astral-nova-css@TAG/dist/nova.iife.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/astral-php/astral-nova-css@1.2.0/dist/nova.min.css">
+<script src="https://cdn.jsdelivr.net/gh/astral-php/astral-nova-css@1.2.0/dist/nova.iife.min.js"></script>
 <script>
   Nova.createInteractions();
   Nova.theme.set('green');
 </script>
 ```
-
-Until that tag: serve `/assets/nova/nova.iife.min.js` locally (Starter `nova-config.js` already does this in `cdn` mode).
 
 `dist/nova.iife.min.js` exposes `window.Nova` (`theme`, `createInteractions`, `showToast`, …). ESM modules under `src/javascript/` remain available for bundlers.
 

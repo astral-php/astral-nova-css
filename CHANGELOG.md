@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.0-dev — Bundle JS CDN (2026-11-20)
+## 1.2.0 — Bundle JS CDN (2026-11-20)
 
 ### Ajouté
 
@@ -11,7 +11,7 @@
 ### Notes
 
 - Modules ES (`src/javascript/*`) inchangés pour import local
-- CDN exemple : `https://cdn.jsdelivr.net/gh/astral-php/astral-nova-css@VERSION/dist/nova.iife.min.js`
+- CDN : `https://cdn.jsdelivr.net/gh/astral-php/astral-nova-css@1.2.0/dist/nova.iife.min.js`
 
 ## 1.1.0 — Layout primitives + adaptateurs Tailwind (2026-11-13)
 

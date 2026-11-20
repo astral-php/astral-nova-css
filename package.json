@@ -1,6 +1,6 @@
 {
   "name": "@astral-php/nova-css",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Framework-agnostic CSS design system, semantic themes and optional native JavaScript behaviors for Astral applications.",
   "license": "MIT",
   "type": "module",
