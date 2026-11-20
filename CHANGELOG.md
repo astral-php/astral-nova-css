@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.2.0-dev — Bundle JS CDN (2026-11-20)
+
+### Ajouté
+
+- `dist/nova.iife.js` / `dist/nova.iife.min.js` — **un seul fichier JS** (`window.Nova`) pour CDN
+- Exports NPM `./nova.iife.js`, `./nova.iife.min.js`, `./javascript/iife`
+- Build : esbuild (devDependency) dans `npm run build`
+
+### Notes
+
+- Modules ES (`src/javascript/*`) inchangés pour import local
+- CDN exemple : `https://cdn.jsdelivr.net/gh/astral-php/astral-nova-css@VERSION/dist/nova.iife.min.js`
+
 ## 1.1.0 — Layout primitives + adaptateurs Tailwind (2026-11-13)
 
 ### Ajouté

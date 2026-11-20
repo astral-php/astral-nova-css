@@ -17,6 +17,9 @@
     },
     "./nova.css": "./dist/nova.css",
     "./nova.min.css": "./dist/nova.min.css",
+    "./nova.iife.js": "./dist/nova.iife.js",
+    "./nova.iife.min.js": "./dist/nova.iife.min.js",
+    "./javascript/iife": "./dist/nova.iife.min.js",
     "./core": "./src/core/index.css",
     "./themes": "./src/themes/index.css",
     "./themes/*": "./src/themes/palettes/*.css",
@@ -38,6 +41,7 @@
     "check": "npm run test && npm run build"
   },
   "devDependencies": {
+    "esbuild": "^0.25.0",
     "lightningcss": "^1.29.2",
     "stylelint": "^16.19.1",
     "stylelint-config-standard": "^39.0.0"

@@ -28,6 +28,7 @@
       "layouts": "src/layouts/",
       "utilities": "src/utilities/",
       "build": "dist/nova.css",
+      "javascript_iife": "dist/nova.iife.min.js",
       "accessibility": "src/core/accessibility.css"
     }
   },

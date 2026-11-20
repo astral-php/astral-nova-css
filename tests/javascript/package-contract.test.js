@@ -6,7 +6,7 @@ const read = path => readFile(new URL(`../../${path}`, import.meta.url), 'utf8')
 
 test('NPM exports expose source modules and both generated CSS bundles', async () => {
   const pkg = JSON.parse(await read('package.json'));
-  for (const key of ['.', './nova.css', './nova.min.css', './core', './themes', './components', './layouts', './utilities', './accessibility', './javascript', './javascript/theme', './javascript/components']) {
+  for (const key of ['.', './nova.css', './nova.min.css', './nova.iife.js', './nova.iife.min.js', './javascript/iife', './core', './themes', './components', './layouts', './utilities', './accessibility', './javascript', './javascript/theme', './javascript/components']) {
     assert.ok(pkg.exports[key], `Missing package export: ${key}`);
   }
   assert.equal(pkg.version, '1.1.0');
